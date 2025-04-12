@@ -1,0 +1,43 @@
+[package]
+name = "agent_collector"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "agent_lib"
+crate-type = ["lib"]
+
+[dependencies]
+serde_json = "1.0"
+async-nats = "0.33" 
+tokio = { version = "1", features = ["full"] }
+pyo3 = { version = "0.20", features = ["extension-module", "auto-initialize", "serde"] }
+serde = { version = "1.0", features = ["derive"] }
+rustls = "0.21"
+rustls-pemfile = "1.0"
+lazy_static = "1.4"
+sysinfo = "0.33.1"
+nkeys = "0.2"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+encoding_rs = "0.8.32"
+futures = "0.3"
+base64 = "0.21"
+anyhow = "1.0"
+nats = { path = "../nats" }
+rand = "0.8"
+dirs = "5.0"
+shared_config = { path = "../shared_config" }
+
+
+windows = { version = "0.48", features = [
+    "Win32_Security_Credentials",
+    "Win32_Security_Cryptography",
+    "Win32_System_Memory",
+    "Win32_Foundation"
+] }
+aes-gcm = { version = "0.10", features = ["rand_core"] }
+
+[[bin]]
+name = "rust_collector"
+path = "src/main.rs"

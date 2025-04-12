@@ -1,0 +1,24 @@
+[package]
+name = "agent_bridge"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+futures = "0.3"
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.12", features = ["json", "rustls-tls"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0.140"
+lazy_static = "1.4"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+nats = { path = "../nats" }
+base64 = "0.21"
+models_database = { path = "../models_database" }
+shared_config = { path = "../shared_config" }
+
+
+
+
+
+
