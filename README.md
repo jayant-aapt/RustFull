@@ -1,14 +1,6 @@
 # RustFull Project
 
-## Overview
 
-This is a Rust-based project designed to demonstrate full-stack development capabilities. The project is modular, scalable, and optimized for performance.
-
-## Features
-
-- **High Performance**: Built with Rust for speed and safety.
-- **Modular Design**: Easy to extend and maintain.
-- **Full-Stack Ready**: Backend with potential for frontend and database integration.
 
 ## Prerequisites
 
