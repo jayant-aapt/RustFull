@@ -4,7 +4,9 @@ target/
 # Additional files to ignore
 **/*.rs.bk
 
-project-genesis/
+models_database/diesel.toml
+nats/nats-server.conf
+
 
 
 # IDEs & Editors
