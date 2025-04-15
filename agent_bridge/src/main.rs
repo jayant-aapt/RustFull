@@ -15,7 +15,7 @@ use server_api::{send_master_key_to_server, send_to_server, get_new_access_token
 pub async fn handle_nats_operations() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     info!("Starting NATS operations...");
 
-    // Setup NATS clients for the bridge
+    // === SETUP NATS CLIENTS ===
     let publisher = NatsPublisher::new(
         &CONFIG.nats_url,
         &std::fs::read_to_string(&CONFIG.b_jwt_path)?,
@@ -36,19 +36,20 @@ pub async fn handle_nats_operations() -> Result<(), Box<dyn std::error::Error + 
     )
     .await?;
 
-    // === Step 1: Wait for a single master_key message
+    // === STEP 1: RECEIVE MASTER KEY ===
     let mut master_key_sub = subscriber.client().subscribe("master_key".to_string()).await?;
     if let Some(msg) = master_key_sub.next().await {
         let payload_str = String::from_utf8_lossy(&msg.payload);
         info!("Received master key: {}", payload_str);
 
+        // Send the master key to the server
         if let Err(e) = send_master_key_to_server(&payload_str).await {
             error!("Failed to send master key to server: {}", e);
             return Err(e);
         }
     }
 
-    // === Step 2: Get access token and publish it
+    // === STEP 2: PUBLISH ACCESS TOKEN ===
     let token_json = get_new_access_token("token").await?;
     let access_token = match serde_json::from_str::<Value>(&token_json) {
         Ok(json_val) => json_val
@@ -70,6 +71,7 @@ pub async fn handle_nats_operations() -> Result<(), Box<dyn std::error::Error + 
     publisher.publish("bridge.response", &token_response).await?;
     info!("Published access token to collector.");
 
+    // === STEP 3: PROCESS AGENT DATA ===
     let mut agent_data_sub = subscriber.client().subscribe("agent.data".to_string()).await?;
     info!("Waiting for agent data...");
 
@@ -77,6 +79,7 @@ pub async fn handle_nats_operations() -> Result<(), Box<dyn std::error::Error + 
         let payload_str = String::from_utf8_lossy(&msg.payload);
         match serde_json::from_str::<Value>(&payload_str) {
             Ok(json) => {
+                // Send agent data to the server
                 if let Err(e) = send_to_server(&json, &access_token).await {
                     error!("Failed to send agent data: {}", e);
                 }
@@ -90,12 +93,16 @@ pub async fn handle_nats_operations() -> Result<(), Box<dyn std::error::Error + 
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
+    // Initialize logging
     tracing_subscriber::fmt().with_max_level(tracing::Level::INFO).init();
     info!("Bridge Application starting...");
+
+    // Start NATS operations
     if let Err(e) = handle_nats_operations().await {
         error!("Error in NATS operations: {:?}", e);
     }
 
+    // Wait for Ctrl+C signal to shut down gracefully
     signal::ctrl_c().await?;
     info!("Bridge shutting down gracefully...");
     Ok(())

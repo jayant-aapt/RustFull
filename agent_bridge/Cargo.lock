@@ -1122,6 +1122,7 @@ dependencies = [
  "libsqlite3-sys",
  "serde",
  "serde_json",
+ "shared_config",
  "uuid",
 ]
 

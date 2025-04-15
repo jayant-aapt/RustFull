@@ -10,6 +10,7 @@ use shared_config::CONFIG;
 pub mod publisher;
 pub mod subscriber;
 
+/// Loads TLS certificates and returns a configured `ClientConfig` for secure communication
 pub fn load_tls_certificates(
     ca_cert_path: &str,
     client_cert_path: &str,
@@ -42,6 +43,7 @@ pub fn load_tls_certificates(
      ))
 }
 
+/// Generates a NATS server configuration file with the specified output path
 pub fn generate_nats_server_config(output_path: &str) -> Result<(), Box<dyn std::error::Error>> {
     let config_content = format!(
         r#"
