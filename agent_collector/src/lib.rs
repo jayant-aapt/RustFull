@@ -1,8 +1,8 @@
 use pyo3::prelude::*;
 use pyo3::types::PyList;
-mod config;
-use config::CONFIG;
+use shared_config::CONFIG;
 
+/// Collects agent data using a Python module and returns it as a JSON string
 pub fn agent_data() -> PyResult<String> {
     pyo3::prepare_freethreaded_python(); 
 
