@@ -17,14 +17,7 @@ use models_database::db::{
 
 //mod config; // Add this line to include the config module
 
-<<<<<<< HEAD
 pub async fn create_publisher() -> Result<NatsPublisher, Box<dyn std::error::Error + Send + Sync>> {
-=======
-pub async fn handle_nats_operations() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
-    info!("Starting NATS operations...");
-
-    // === SETUP NATS CLIENTS ===
->>>>>>> 988e83801efc0fc0d06d0d1387e6971d75698051
     let publisher = NatsPublisher::new(
         &CONFIG.nats_url,
         &std::fs::read_to_string(&CONFIG.b_jwt_path)?,
@@ -52,7 +45,6 @@ pub async fn create_subscriber() -> Result<Arc<Mutex<NatsSubscriber>>, Box<dyn s
     Ok(Arc::new(Mutex::new(subscriber)))
 }
 
-<<<<<<< HEAD
 pub async fn handle_nats_operations() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     info!("Starting NATS operations handler");
 
@@ -62,34 +54,6 @@ pub async fn handle_nats_operations() -> Result<(), Box<dyn std::error::Error + 
     let subscriber_monitor = create_subscriber().await?;
     let subscriber_scan =create_subscriber().await?;
 
-=======
-    // === STEP 1: RECEIVE MASTER KEY ===
-    let mut master_key_sub = subscriber.client().subscribe("master_key".to_string()).await?;
-    if let Some(msg) = master_key_sub.next().await {
-        let payload_str = String::from_utf8_lossy(&msg.payload);
-        info!("Received master key: {}", payload_str);
-
-        // Send the master key to the server
-        if let Err(e) = send_master_key_to_server(&payload_str).await {
-            error!("Failed to send master key to server: {}", e);
-            return Err(e);
-        }
-    }
-
-    // === STEP 2: PUBLISH ACCESS TOKEN ===
-    let token_json = get_new_access_token("token").await?;
-    let access_token = match serde_json::from_str::<Value>(&token_json) {
-        Ok(json_val) => json_val
-            .get("access_token")
-            .and_then(|v| v.as_str())
-            .unwrap_or("")
-            .to_string(),
-        Err(e) => {
-            error!("Failed to parse access token JSON: {}", e);
-            return Err("Invalid access token response".into());
-        }
-    };
->>>>>>> 988e83801efc0fc0d06d0d1387e6971d75698051
 
     let http_client = reqwest::Client::builder()
         .danger_accept_invalid_certs(true)
@@ -101,7 +65,6 @@ pub async fn handle_nats_operations() -> Result<(), Box<dyn std::error::Error + 
     let monitor_data_handler = handle_monitor_data_operations(subscriber_monitor, publisher.clone(), http_client.clone());
     let scan_data_handler = handle_scan_data_operations(subscriber_scan, publisher.clone(), http_client.clone());
 
-<<<<<<< HEAD
     tokio::select! {
         res = master_key_handler => {
             if let Err(e) = res {
@@ -125,20 +88,6 @@ pub async fn handle_nats_operations() -> Result<(), Box<dyn std::error::Error + 
             if let Err(e) = res {
                 error!("Monitor data handler failed: {}", e);
                 return Err(Box::new(std::io::Error::new(std::io::ErrorKind::Other, e.to_string())));
-=======
-    // === STEP 3: PROCESS AGENT DATA ===
-    let mut agent_data_sub = subscriber.client().subscribe("agent.data".to_string()).await?;
-    info!("Waiting for agent data...");
-
-    while let Some(msg) = agent_data_sub.next().await {
-        let payload_str = String::from_utf8_lossy(&msg.payload);
-        match serde_json::from_str::<Value>(&payload_str) {
-            Ok(json) => {
-                // Send agent data to the server
-                if let Err(e) = send_to_server(&json, &access_token).await {
-                    error!("Failed to send agent data: {}", e);
-                }
->>>>>>> 988e83801efc0fc0d06d0d1387e6971d75698051
             }
         }
     }
@@ -345,16 +294,12 @@ async fn handle_scan_data_operations(subscriber: Arc<Mutex<NatsSubscriber>>, pub
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
-    // Initialize logging
     tracing_subscriber::fmt().with_max_level(tracing::Level::INFO).init();
     info!("Bridge Application starting...");
-
-    // Start NATS operations
     if let Err(e) = handle_nats_operations().await {
         error!("Error in NATS operations: {:?}", e);
     }
 
-    // Wait for Ctrl+C signal to shut down gracefully
     signal::ctrl_c().await?;
     info!("Bridge shutting down gracefully...");
     Ok(())
