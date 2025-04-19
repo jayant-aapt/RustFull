@@ -2,11 +2,13 @@ use diesel::prelude::*;
 use diesel::sqlite::SqliteConnection;
 use std::fs;
 use std::path::Path;
-use crate::models::AgentCredential;
+use crate::models::{AgentCredential,Token};
+use crate::schema::agent::dsl::{agent, os};
 use crate::schema::agent_credential::dsl::*;
 use serde::{Deserialize, Serialize};
-use serde_json::Value; // Added import for JSON handling
-use crate::initail_response::store_json_data; // Importing the function to store JSON data
+use serde_json::Value;
+use crate::initail_response::{insert_partition, store_json_data}; 
+use chrono::NaiveDateTime;
 #[derive(Debug, Deserialize, Serialize)]
 pub struct ServerResponse {
     pub uuid: String,
@@ -78,7 +80,76 @@ pub fn get_agent_credential(conn: &mut SqliteConnection) -> Option<AgentCredenti
         .ok()
 } 
 
+pub fn get_agent_details(conn: &mut SqliteConnection) -> Option<String> {
+    agent
+        .select(os)
+        .limit(1)
+        .first::<String>(conn)
+        .ok()
+}
+
 pub fn initial_data_save(conn: &mut SqliteConnection, json_data: &Value) -> Result<(), diesel::result::Error> {
     store_json_data(conn, json_data)?; // Fixed function call
     Ok(())
+}
+
+pub fn save_token(conn: &mut SqliteConnection, token_str: &str, expiration_str: &str, token_type_str: &str) -> Result<(), diesel::result::Error> {
+    use crate::schema::tokens::dsl::*;
+
+    diesel::insert_into(tokens)
+        .values((
+            token.eq(token_str),
+            expiration.eq(expiration_str),
+            token_type.eq(token_type_str),
+        ))
+        .on_conflict(token)
+        .do_update()
+        .set((
+            token.eq(token_str),
+            expiration.eq(expiration_str),
+        ))
+        .execute(conn)?;
+
+    Ok(())
+}
+
+pub fn get_token(conn: &mut SqliteConnection, token_type_str: &str) -> Option<Token> {
+    use crate::schema::tokens::dsl::*;
+    
+    let result = tokens
+        .filter(token_type.eq(token_type_str))
+        .first::<Token>(conn)
+        .optional()
+        .unwrap_or(None);
+
+    result.and_then(|t| {
+        if let Ok(exp_time) = NaiveDateTime::parse_from_str(&t.expiration, "%Y-%m-%d %H:%M:%S") {
+            if exp_time > chrono::Local::now().naive_local() {
+                return Some(t);
+            }
+        }
+        None
+    })
+}
+
+pub fn token_exists(conn: &mut SqliteConnection, token_type_str: &str) -> bool {
+    use crate::schema::tokens::dsl::*;
+
+    tokens
+        .filter(token_type.eq(token_type_str))
+        .first::<Token>(conn)
+        .optional()
+        .unwrap_or(None)
+        .is_some()
+}
+
+pub fn update_initial_data(conn: &mut SqliteConnection,p_uuid: &str,action:&str,json_data: &Value) -> Result<(), diesel::result::Error> {
+    if action == "Partition" {
+        match insert_partition(conn, json_data, p_uuid) {
+            Ok(_) => println!("Inserted partition."),
+            Err(e) => eprintln!("Error: {:?}", e),
+        }
+    }
+    Ok(())
+
 }

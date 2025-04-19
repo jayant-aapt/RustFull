@@ -20,7 +20,7 @@ diesel::table! {
 
 diesel::table! {
     cpu (uuid) {
-        uuid -> Nullable<Text>,
+        uuid -> Text,
         device_uuid -> Text,
         make -> Text,
         model -> Text,
@@ -33,7 +33,7 @@ diesel::table! {
 
 diesel::table! {
     device (uuid) {
-        uuid -> Nullable<Text>,
+        uuid -> Text,
         make -> Text,
         model -> Text,
         serial_number -> Text,
@@ -43,7 +43,7 @@ diesel::table! {
 
 diesel::table! {
     gpu (uuid) {
-        uuid -> Nullable<Text>,
+        uuid -> Text,
         device_uuid -> Text,
         make -> Text,
         model -> Text,
@@ -56,7 +56,7 @@ diesel::table! {
 
 diesel::table! {
     ip_address (uuid) {
-        uuid -> Nullable<Text>,
+        uuid -> Text,
         port_uuid -> Text,
         address -> Text,
         gateway -> Nullable<Text>,
@@ -68,7 +68,7 @@ diesel::table! {
 
 diesel::table! {
     memory (uuid) {
-        uuid -> Nullable<Text>,
+        uuid -> Text,
         device_uuid -> Text,
         make -> Text,
         model -> Text,
@@ -81,7 +81,7 @@ diesel::table! {
 
 diesel::table! {
     nic (uuid) {
-        uuid -> Nullable<Text>,
+        uuid -> Text,
         device_uuid -> Text,
         make -> Text,
         model -> Text,
@@ -95,7 +95,7 @@ diesel::table! {
 
 diesel::table! {
     partition (uuid) {
-        uuid -> Nullable<Text>,
+        uuid -> Text,
         storage_uuid -> Text,
         name -> Text,
         fs_type -> Text,
@@ -108,7 +108,7 @@ diesel::table! {
 
 diesel::table! {
     port (uuid) {
-        uuid -> Nullable<Text>,
+        uuid -> Text,
         nic_uuid -> Text,
         interface_name -> Text,
         operating_speed -> Text,
@@ -120,7 +120,7 @@ diesel::table! {
 
 diesel::table! {
     storage (uuid) {
-        uuid -> Nullable<Text>,
+        uuid -> Text,
         device_uuid -> Text,
         hw_disk_type -> Text,
         make -> Text,
@@ -131,6 +131,15 @@ diesel::table! {
         total_disk_usage -> Text,
         total_disk_size -> Text,
         os_uuid -> Nullable<Text>,
+    }
+}
+
+diesel::table! {
+    tokens (id) {
+        id -> Nullable<Integer>,
+        token -> Text,
+        expiration -> Text,
+        token_type -> Text,
     }
 }
 
@@ -155,4 +164,5 @@ diesel::allow_tables_to_appear_in_same_query!(
     partition,
     port,
     storage,
+    tokens,
 );

@@ -8,13 +8,21 @@ import socket
 import subprocess
 import requests
 import re
-
+import pythoncom 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 class AgentData:
 
     def __init__(self):
+        pythoncom.CoInitialize()
         self.wmi_obj = wmi.WMI()
+        
+    def __del__(self):
+        """Cleanup COM when object is destroyed"""
+        try:
+            pythoncom.CoUninitialize()
+        except:
+            pass
     
     def get_cpu_details(self):
         try:
@@ -25,7 +33,7 @@ class AgentData:
                 "model": cpu_info.Name.strip(),
                 "p_cores": psutil.cpu_count(logical=False),
                 "l_cores": psutil.cpu_count(logical=True),
-                "speed": f"{psutil.cpu_freq().max} Mbps"
+                "speed": psutil.cpu_freq().max
             }]
         except Exception as e:
             logging.error("Error retrieving CPU details: %s", e)
@@ -38,62 +46,78 @@ class AgentData:
                 memory_data.append({
                     "make": mem.Manufacturer.strip(),
                     "model": mem.PartNumber.strip(),
-                    "speed":f"{ int(mem.Speed)} Mbps",
-                    "size": f"{int(mem.Capacity) // (1024 ** 3)}GB" ,
+                    "speed":mem.Speed,
+                    "size": int(mem.Capacity),
                     "serial_number": mem.SerialNumber.strip()
                 })
             return memory_data
         except Exception as e:
             logging.error("Error retrieving memory details: %s", e)
             return []
+   
+
+    def get_partitions(self):
+        try:
+            logical_disks = {ld.DeviceID: ld for ld in self.wmi_obj.Win32_LogicalDisk()}
+            volumes = {vol.DeviceID: vol for vol in self.wmi_obj.Win32_Volume()}
+
+            partitions = []
+            for ld in logical_disks.values():
+                volume = next((vol for vol in volumes.values() if vol.DriveLetter == ld.DeviceID), None)
+                volume_uuid = None
+                if volume:
+                    match = re.search(r"Volume{(.+?)}", volume.DeviceID)
+                    volume_uuid = match.group(1) if match else "UUID Not Found"
+
+                partitions.append({
+                    "os_uuid": volume_uuid,
+                    "name": ld.DeviceID,
+                    "fs_type": ld.FileSystem or "Unknown",
+                    "free_space": round(int(ld.FreeSpace)) if ld.FreeSpace else 0,
+                    "used_space": round((int(ld.Size or 0)) - int(ld.FreeSpace or 0)),
+                    "total_size": round(int(ld.Size)) if ld.Size else 0
+                })
+
+            return partitions
+
+        except Exception as e:
+            logging.error(f"Error retrieving partition details: {e}")
+            return []
+
     def get_storage_details(self):
         try:
             command = r'powershell -Command "Get-Disk | Select-Object UniqueId | ConvertTo-Json"'
             storage_uuid = subprocess.check_output(command, shell=True, universal_newlines=True)
             data = json.loads(storage_uuid)
             unique_id = data["UniqueId"].strip().split()[-1]
+
             storage_data = []
-            logical_disks = {ld.DeviceID: ld for ld in self.wmi_obj.Win32_LogicalDisk()}
-            volumes = {vol.DeviceID: vol for vol in self.wmi_obj.Win32_Volume()}
+            partitions = self.get_partitions()  # Get all partitions
+
+            total_free_space = sum(p["free_space"] for p in partitions)
+            total_used_space = sum(p["used_space"] for p in partitions)
+            total_size = sum(p["total_size"] for p in partitions)
 
             for disk in self.wmi_obj.Win32_DiskDrive():
-                partitions = []
-                for ld in logical_disks.values():
-                    volume = next((vol for vol in volumes.values() if vol.DriveLetter == ld.DeviceID), None)
-                    volume_uuid = None
-                    if volume:
-                        match = re.search(r"Volume{(.+?)}", volume.DeviceID)
-                        volume_uuid = match.group(1) if match else "UUID Not Found"
-                    partitions.append({
-                        "os_uuid":volume_uuid,
-                        "name": ld.DeviceID,
-                        "fs_type": ld.FileSystem or "Unknown",
-                        "free_space": f"{round(int(ld.FreeSpace) / (1024 ** 3), 2) if ld.FreeSpace else 0}GB",
-                        "used_space": f"{round((int(ld.Size or 0) - int(ld.FreeSpace or 0)) / (1024 ** 3), 2)}GB",
-                        "total_size": f"{round(int(ld.Size) / (1024 ** 3), 2) if ld.Size else 0}GB"
-                    })
-
-                total_free_space = sum(float(p["free_space"].split('GB')[0]) for p in partitions)
-                total_used_space = sum(float(p["used_space"].split('GB')[0]) for p in partitions)
-                total_size = sum(float(p["total_size"].split('GB')[0]) for p in partitions)
-
                 storage_data.append({
-                    "os_uuid":unique_id,
-                    "hw_disk_type": "sata",  
+                    "os_uuid": unique_id,
+                    "hw_disk_type": "sata",
                     "make": disk.Manufacturer.strip() if disk.Manufacturer else "Unknown",
                     "model": disk.Model.strip() if disk.Model else "Unknown",
                     "serial_number": disk.SerialNumber.strip() if disk.SerialNumber else "Unknown",
                     "base_fs_type": partitions[0]["fs_type"] if partitions else "Unknown",
-                    "free_space": f"{total_free_space:.2f}GB",
-                    "total_disk_usage": f"{total_used_space:.2f}GB",
-                    "total_disk_size": f"{total_size:.2f}GB",
+                    "free_space": total_free_space,
+                    "total_disk_usage": total_used_space,
+                    "total_disk_size": total_size,
                     "partition": partitions
                 })
 
             return storage_data
+
         except Exception as e:
             logging.error(f"Error retrieving storage details: {e}")
             return []
+
 
     def get_network_details(self):
         try:
@@ -115,7 +139,7 @@ class AgentData:
                     max_speed_bps = 0 
 
                 if max_speed_bps > 0:
-                    max_speed = f"{max_speed_bps / 1e6:.2f}Mbps"
+                    max_speed =max_speed_bps
                 else:
                     max_speed = "Unknown"
 
@@ -131,8 +155,8 @@ class AgentData:
                     "supported_speeds": "1000, 2500",  
                     "serial_number": serial_number.strip(),
                     "port": [{
-                        "interface_name": getattr(nic, 'Description', 'Unknown').strip(),
-                        "operating_speed": max_speed,
+                        "interface_name": getattr(nic, 'NetConnectionID', 'Unknown').strip(),
+                        "operating_speed": int(getattr(nic, 'Speed', 0)),
                         "is_physical_logical": "physical",
                         "logical_type": "bridge",  
                         "ip": ip_info
@@ -157,7 +181,7 @@ class AgentData:
                         "make": gpu.AdapterCompatibility.strip() if gpu.AdapterCompatibility else 'Unknown',
                         "model": gpu.Name.strip() if gpu.Name else 'Unknown',
                         "serial_number": serial_number.strip() if serial_number else 'Unknown',
-                        "size": f"{int(gpu.AdapterRAM) // (1024 ** 3) if gpu.AdapterRAM else "Unknown"}GB",
+                        "size": int(gpu.AdapterRAM) if gpu.AdapterRAM else "Unknown",
                         "driver": gpu.DriverVersion.strip() if gpu.DriverVersion else "Unknown"
                     })
                 return gpu_data

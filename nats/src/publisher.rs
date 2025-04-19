@@ -4,7 +4,7 @@ use std::sync::Arc;
 use crate::load_tls_certificates;
 use nkeys::KeyPair;
 use std::error::Error;
-
+use bytes::Bytes;
 
 #[derive(Clone)]
 pub struct NatsPublisher {
@@ -41,8 +41,10 @@ impl NatsPublisher {
     }
 
     pub async fn publish<T: Serialize>(&self, subject: &str, message: &T) -> Result<(), Box<dyn Error + Send + Sync>> {
-        let json = serde_json::to_string(message)?;
-        self.client.publish(subject.to_string(), json.into()).await?;
+        let json = serde_json::to_string(message)?; 
+        let bytes = json.into_bytes();  
+        self.client.publish(subject.to_string(), Bytes::from(bytes)).await?;
         Ok(())
     }
+    
 }

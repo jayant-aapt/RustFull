@@ -77,7 +77,7 @@ pub struct Storage {
     pub os_uuid: Option<String>,
 }
 
-#[derive(Debug, Insertable, Deserialize)]
+#[derive(Debug, Insertable,Queryable, Deserialize)]
 #[diesel(table_name = crate::schema::partition)]
 pub struct Partition {
     pub uuid: String,
@@ -145,4 +145,15 @@ pub struct Gpu {
     pub driver: String,
     pub os_uuid: Option<String>,
 }
+
+#[derive(Debug, Queryable, Insertable, Serialize, Deserialize, Clone, AsChangeset, Selectable)]
+#[diesel(table_name = crate::schema::tokens)]
+#[diesel(check_for_backend(diesel::sqlite::Sqlite))]
+pub struct Token {
+    pub id: Option<i32>, 
+    pub token: String,
+    pub expiration: String,
+    pub token_type: String,
+}
+
 

@@ -1,5 +1,5 @@
 -- Your SQL goes here
--- Your SQL goes here
+
 
 CREATE TABLE agent_credential (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -16,7 +16,7 @@ CREATE TABLE agent (
 );
 
 CREATE TABLE device (
-    uuid TEXT PRIMARY KEY,
+    uuid TEXT PRIMARY KEY NOT NULL,
     make TEXT NOT NULL,
     model TEXT NOT NULL,
     serial_number TEXT NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE device (
 );
 
 CREATE TABLE cpu (
-    uuid TEXT PRIMARY KEY,
+    uuid TEXT PRIMARY KEY  NOT NULL,
     device_uuid TEXT NOT NULL,
     make TEXT NOT NULL,
     model TEXT NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE cpu (
 );
 
 CREATE TABLE memory (
-    uuid TEXT PRIMARY KEY,
+    uuid TEXT PRIMARY KEY  NOT NULL,
     device_uuid TEXT NOT NULL,
     make TEXT NOT NULL,
     model TEXT NOT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE memory (
 );
 
 CREATE TABLE storage (
-    uuid TEXT PRIMARY KEY,
+    uuid TEXT PRIMARY KEY  NOT NULL,
     device_uuid TEXT NOT NULL,
     hw_disk_type TEXT NOT NULL,
     make TEXT NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE storage (
 );
 
 CREATE TABLE partition (
-    uuid TEXT PRIMARY KEY,
+    uuid TEXT PRIMARY KEY  NOT NULL,
     storage_uuid TEXT NOT NULL,
     name TEXT NOT NULL,
     fs_type TEXT NOT NULL,
@@ -75,7 +75,7 @@ CREATE TABLE partition (
 );
 
 CREATE TABLE nic (
-    uuid TEXT PRIMARY KEY,
+    uuid TEXT PRIMARY KEY  NOT NULL,
     device_uuid TEXT NOT NULL,
     make TEXT NOT NULL,
     model TEXT NOT NULL,
@@ -88,7 +88,7 @@ CREATE TABLE nic (
 );
 
 CREATE TABLE port (
-    uuid TEXT PRIMARY KEY,
+    uuid TEXT PRIMARY KEY  NOT NULL,
     nic_uuid TEXT NOT NULL,
     interface_name TEXT NOT NULL,
     operating_speed TEXT NOT NULL,
@@ -99,7 +99,7 @@ CREATE TABLE port (
 );
 
 CREATE TABLE ip_address (
-    uuid TEXT PRIMARY KEY,
+    uuid TEXT PRIMARY KEY  NOT NULL,
     port_uuid TEXT NOT NULL,
     address TEXT NOT NULL,
     gateway TEXT,
@@ -110,7 +110,7 @@ CREATE TABLE ip_address (
 );
 
 CREATE TABLE gpu (
-    uuid TEXT PRIMARY KEY,
+    uuid TEXT PRIMARY KEY  NOT NULL,
     device_uuid TEXT NOT NULL,
     make TEXT NOT NULL,
     model TEXT NOT NULL,
@@ -121,3 +121,11 @@ CREATE TABLE gpu (
     FOREIGN KEY (device_uuid) REFERENCES device(uuid)
 );
 
+CREATE TABLE tokens (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    token TEXT NOT NULL UNIQUE,
+    expiration TEXT NOT NULL,
+    token_type TEXT NOT NULL 
+);
+
+-- Your SQL goes here

@@ -3,6 +3,7 @@ use diesel::result::Error;
 use serde_json::Value;
 use crate::models::*;
 use crate::schema::*;
+use anyhow::{Result, Context};
 
 pub fn store_json_data(conn: &mut SqliteConnection, json_data: &Value) -> Result<(), Error> {
     conn.transaction::<_, Error, _>(|conn| {
@@ -161,4 +162,37 @@ pub fn store_json_data(conn: &mut SqliteConnection, json_data: &Value) -> Result
         println!("JSON data stored successfully.");
         Ok(())
     })
+}
+
+
+pub fn insert_partition(conn: &mut SqliteConnection,data: &Value, uuid: &str ) -> Result<()> {
+
+    let mut partition_data: Partition = serde_json::from_value(data.clone())
+    .context("Failed to parse partition data from JSON")?;
+    let existing_partition = partition::table
+        .filter(partition::storage_uuid.eq(uuid)) 
+        .first::<Partition>(conn)
+        .optional()?;  
+
+    match existing_partition {
+        Some(_) => {
+
+            println!("Found matching storage_uuid, proceeding to insert partition.");
+
+            diesel::insert_into(partition::table)
+                .values(&partition_data)  
+                .execute(conn)
+                .map_err(|e| {
+                    println!("Failed to insert into partition table: {e}");
+                    e
+                })?;
+
+            println!("Partition data inserted successfully.");
+            Ok(())
+        }
+        None => {
+            println!("No matching storage_uuid found, skipping partition insertion.");
+            Ok(())
+        }
+    }
 }

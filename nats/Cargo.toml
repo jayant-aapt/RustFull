@@ -7,7 +7,7 @@ edition = "2021"
 path = "src/lib.rs"
 
 [dependencies]
-async-nats = "0.32"
+async-nats = "0.33"
 nkeys = "0.3"
 rustls = "0.21"
 serde = { version = "1.0", features = ["derive"] }
@@ -17,3 +17,5 @@ tokio = { version = "1.36", features = ["full"] }
 rustls-pemfile = "1.0"
 tracing = "0.1"
 shared_config = { path = "../shared_config" }
+
+bytes = "1.0"

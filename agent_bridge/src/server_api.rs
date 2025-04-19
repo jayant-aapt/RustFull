@@ -1,87 +1,120 @@
-use tracing::{info, error};
+use serde::Serialize;
+use tracing::{info, error,warn};
 use std::collections::HashMap;
+use reqwest::Client;
+use reqwest::Response;
 use serde_json::Value;
 use base64::engine::general_purpose;
 use base64::Engine;
 use shared_config::CONFIG;
 
 use models_database::db::{
-    establish_connection, get_agent_credential, initial_data_save, is_agent_onboarded, save_agent, ServerResponse
+    establish_connection, get_agent_credential, initial_data_save, is_agent_onboarded, save_agent ,update_initial_data
 };
+use tokio_tungstenite::{connect_async_tls_with_config, Connector, WebSocketStream};
+use tokio_tungstenite::tungstenite::protocol::Message;
+type WSStream = WebSocketStream<MaybeTlsStream<TcpStream>>;
+use futures::SinkExt;
+use tokio::sync::Mutex;
+use tokio::net::TcpStream;
+use std::sync::Arc;
 
+use url::Url;
+use tokio_tungstenite::tungstenite::http::HeaderValue;
+use anyhow::{Result, Context};
+
+use native_tls::TlsConnector as NativeTlsConnector;
+use tungstenite::client::IntoClientRequest;
+use tokio_tungstenite::MaybeTlsStream;
+use futures_util::StreamExt;
+
+fn base_url() -> &'static str {
+    CONFIG.central_server_url.as_str()
+}
+
+
+lazy_static::lazy_static! {
+    static ref WS_CONNECTION: Arc<Mutex<Option<WSStream>>> = Arc::new(Mutex::new(None));
+}
+
+#[derive(Serialize)]
+struct MasterKeyPayload {
+    master_key: String,
+}
 
 /// Submits the master key to the server for onboarding
-pub async fn send_master_key_to_server(received_payload: &str) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
+pub async fn send_master_key_to_server(received_payload: &str) -> Result<(), Box<dyn std::error::Error>> {
     
     let mut conn = establish_connection(&CONFIG.db_path);
 
     if is_agent_onboarded(&mut conn) {
+        println!("[INFO] Agent is already onboarded. Skipping server call.");
         info!("Agent already onboarded. Skipping master key submission.");
         return Ok(());
     }
 
-    let payload = serde_json::json!({
-        "master_key": general_purpose::STANDARD.encode(received_payload),
-    });
+    let payload = MasterKeyPayload {
+        master_key: general_purpose::STANDARD.encode(received_payload),
+    };
+
+    let api_key = "1234567890abcdef1234567890abcdef";
+    //let central_server_url = "https://192.168.100.13/api/agent/onboard/";
+    let central_server_url = base_url().to_string() + "/api/agent/onboard/";
 
     let client = reqwest::Client::builder().danger_accept_invalid_certs(true).build()?;
+
     let response = client
-        .post("https://192.168.100.13/api/agent/onboard/")
-        .header("X-API-KEY", "1234567890abcdef1234567890abcdef")
+        .post(central_server_url)
+        .header("X-API-KEY", api_key)
         .json(&payload)
         .send()
         .await?;
 
-    if response.status().is_success() {
-        let parsed_response: ServerResponse = serde_json::from_str(&response.text().await?)?;
-        save_agent(&mut conn, &parsed_response)?;
-        info!("Master key successfully sent and agent onboarded.");
+    let status = response.status();
+    let response_text = response.text().await?;
+    info!("Response from server: {}", response_text);
+
+    if status.is_success() {
+        let parsed_response: models_database::db::ServerResponse = serde_json::from_str(&response_text)?;
+
+        match save_agent(&mut conn, &parsed_response) {
+            Ok(_) => {
+                println!("[SUCCESS] Response saved to database!");
+                Ok(())
+            }
+            Err(e) => {
+                println!("[ERROR] Failed to save data: {}", e);
+                Err(Box::new(e))
+            }
+        }
     } else {
-        error!("Failed to send master key: {}", response.status());
+        println!("[ERROR] Failed to back up master key. Status: {}", status);
+        Ok(())
     }
-
-    Ok(())
-}
-
-/// Sends agent data to the server with provided token
-pub async fn send_to_server(data: &Value, token: &str) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
-    let mut conn = establish_connection(&CONFIG.db_path);
-    let agent_uuid = get_agent_credential(&mut conn).ok_or("No UUID found")?.uuid;
-
-    let client = reqwest::Client::builder().danger_accept_invalid_certs(true).build()?;
-    let response = client
-        .post("https://192.168.100.13/api/agent/init/data/")
-        .header("Authorization", format!("Bearer {}", token))
-        .header("uuid", agent_uuid)
-        .json(data)
-        .send()
-        .await?;
-
-    if response.status().is_success() {
-        let json_data: Value = serde_json::from_str(&response.text().await?)?;
-        initial_data_save(&mut conn, &json_data)?;
-        info!("Agent data sent to server.");
-    } else {
-        error!("Failed to send agent data: {}", response.status());
-    }
-
-    Ok(())
 }
 
 /// Retrieves a new access token using saved client credentials
 pub async fn get_new_access_token(token_type: &str) -> Result<String, Box<dyn std::error::Error + Send + Sync>> {
     let mut conn = establish_connection(&CONFIG.db_path);
 
-    let credential = get_agent_credential(&mut conn).ok_or("No credentials found")?;
+    let credential = match get_agent_credential(&mut conn) {
+        Some(cred) => cred,
+        None => {
+            println!("[ERROR] No agent credentials found in database.");
+            return Err("No credentials found".into());
+        }
+    };
+    info!("Agent credentials found in database: {:?}", credential);
 
     let mut form_data = HashMap::new();
     form_data.insert("grant_type".to_string(), "client_credentials".to_string());
     form_data.insert("client_id".to_string(), credential.client_id.clone());
     form_data.insert("client_secret".to_string(), credential.client_secret.clone());
 
+    info!("Calling..........................: {}", token_type);
     let url = match token_type {
-        "access_token" => "https://192.168.100.13/api/agent/get/jwt/access_token/",
-        _ => "https://192.168.100.13/api/agent/get/jwt/",
+        "access_token" => format!("{}/api/agent/get/jwt/access_token/", base_url()),
+        _ => format!("{}/api/agent/get/jwt/", base_url()),
     };
 
     let client = reqwest::Client::builder().danger_accept_invalid_certs(true).build()?;
@@ -103,4 +136,225 @@ pub async fn get_new_access_token(token_type: &str) -> Result<String, Box<dyn st
         error!("Failed to get access token: {}", body);
         Err(format!("Token error: {status}").into())
     }
+}
+
+pub async fn send_to_server(data: &str, token: &str) -> Result<String, Box<dyn std::error::Error>> {
+    let mut conn = establish_connection(&CONFIG.db_path);
+    let url = format!("{}/api/agent/init/data/", base_url());
+    let agent_uuid = match get_agent_credential(&mut conn) {
+        Some(cred) => cred.uuid,
+        None => {
+            println!("[ERROR] No agent UUID found in database.");
+            return Err("No UUID found".into());
+        }
+    };
+    let client = Client::builder()
+        .danger_accept_invalid_certs(true)
+        .build()
+        .expect("Failed to create reqwest client with SSL validation");
+
+    async fn send_initial_data(client: &Client,url: &str,uuid: &str,token: &str,data: &str,) -> Result<Response, reqwest::Error> {
+        let json_data: serde_json::Value = serde_json::from_str(data).expect("Failed to parse JSON data");
+        client
+            .post(url)
+            .header("Content-Type", "application/json")
+            .header("Authorization", format!("Bearer {}", token))
+            .header("uuid", uuid)
+            .json(&json_data)
+            .send()
+            .await
+    }
+
+    let mut response = send_initial_data(&client, &url, &agent_uuid, &token, data).await?;
+    let mut status = response.status();
+    let mut response_text = response.text().await?;
+
+    if status == reqwest::StatusCode::UNAUTHORIZED || response_text.contains("Invalid or expired token") {
+        println!("[WARN] Token expired. Fetching new access token...");
+        match get_new_access_token("access_token").await {
+            Ok(new_token) => {
+                println!("[INFO] Retrying with new token...");
+                let new_token: String = match serde_json::from_str::<Value>(&new_token) {
+                    Ok(json_val) => {
+                        json_val.get("access_token")
+                            .and_then(|v| v.as_str())
+                            .unwrap_or("")
+                            .to_string()
+                    }
+                    Err(e) => {
+                        error!("Failed to parse new access token JSON: {}", e);
+                        "".to_string()
+                    }
+                };
+
+                response = send_initial_data(&client, &url, &agent_uuid, &new_token, data).await?;
+                status = response.status();
+                response_text = response.text().await?;
+            }
+            Err(e) => {
+                println!("[ERROR] Failed to refresh token: {}", e);
+                return Err("Token refresh failed".into());
+            }
+        }
+    }
+
+    if status.is_success() {
+        info!("Response from server: {}", response_text);
+        let json_data: Value = serde_json::from_str(&response_text)?;
+        match initial_data_save(&mut conn, &json_data) {
+            Ok(_) => {
+                info!("Response data stored successfully");
+                return Ok("Data stored successfully".to_string());
+            }
+            Err(e) => eprintln!("Error storing data: {:?}", e),
+        }
+    } else {
+        error!(
+            "[ERROR] Failed to send agent data. Status: {}",
+            status
+        );
+    }
+
+    Ok("Initial Data send to server not store in database".to_string())
+}
+
+
+pub async fn send_to_monitor_server(data: &str, access_token: &str) -> Result<String, String> {
+    let mut conn = establish_connection(&CONFIG.db_path);
+
+    let agent_uuid = match get_agent_credential(&mut conn) {
+        Some(cred) => cred.uuid,
+        None => return Err("No UUID found".into()),
+    };
+
+    match send_via_websocket(data, access_token, &agent_uuid).await {
+        Ok(response) => Ok(response), 
+        Err(e) => {
+            warn!("WebSocket failed: {}. Falling back to HTTPS.", e);
+            match send_via_https(data, access_token, &agent_uuid).await {
+                Ok(response) => Ok(response),
+                Err(e) => Err(format!("Both WebSocket and HTTPS failed: {}", e))
+            }
+        }
+    }
+}
+
+// Function to send data via HTTPS
+async fn send_via_https(data: &str, access_token: &str, agent_uuid: &str) -> Result<String, anyhow::Error> {
+    let client = Client::builder()
+        .danger_accept_invalid_certs(true)
+        .build()?;
+    let bridge_url = format!("{}/api/agent/bridge/", base_url());
+
+    println!("Sending data to the HTTPS server");
+
+    let response = client
+        .post(bridge_url)
+        .header("Content-Type", "application/json")
+        .header("access-token", access_token)
+        .header("uuid", agent_uuid)
+        .body(data.to_string())
+        .send()
+        .await?;
+
+        let text_response = response.text().await?;
+        Ok(text_response)
+}
+
+// Function to send data via WebSocket
+// 
+
+async fn send_via_websocket(data: &str, access_token: &str, agent_uuid: &str) -> Result<String, anyhow::Error> {
+    let mut ws_stream_lock = WS_CONNECTION.lock().await;
+
+    // If no WebSocket connection exists, create a new one
+    if ws_stream_lock.is_none() {
+        *ws_stream_lock = Some(web_socket_connection(access_token, agent_uuid).await?);
+    }
+
+    // Get the existing WebSocket stream (which is now guaranteed to be Some)
+    let mut _ws_stream = ws_stream_lock.as_mut().unwrap();
+
+    _ws_stream
+        .send(Message::Text(data.to_string()))
+        .await
+        .context("Failed to send message")?;
+    println!("Data sent");
+
+    if let Some(msg) = _ws_stream.next().await {
+            match msg {
+                Ok(Message::Text(response)) => {
+                    Ok(response)  
+                },
+            Ok(other) => {
+                println!("Received non-text WebSocket message: {:?}", other);
+                Err(anyhow::anyhow!("Unexpected WebSocket message type: {:?}", other))
+            },
+            Err(e) => {
+                eprintln!("Error receiving WebSocket message: {:?}", e);
+                Err(anyhow::anyhow!("WebSocket receive error: {:?}", e))
+            }
+        }
+    } else {
+        Err(anyhow::anyhow!("No response received over WebSocket"))
+    }
+}
+
+async fn web_socket_connection(access_token: &str, agent_uuid: &str) -> Result<WSStream> {
+    let url = Url::parse(&format!("{}/api/agent/bridge/", CONFIG.web_socket_url)).unwrap();
+    let mut req = url.clone().into_client_request().unwrap();
+
+    let headers = req.headers_mut();
+    headers.insert("uuid", HeaderValue::from_str(agent_uuid).expect("Invalid UUID header"));
+    headers.insert("access-token", HeaderValue::from_str(access_token).expect("Invalid access-token header"));
+    headers.insert("Content-Type", HeaderValue::from_static("application/json"));
+
+    let native_tls = NativeTlsConnector::builder()
+        .danger_accept_invalid_certs(true)
+        .build()
+        .expect("Failed to build native TLS connector");
+    let connector = Some(Connector::NativeTls(native_tls));
+
+    let (stream, _) = connect_async_tls_with_config(req, None, false, connector)
+        .await
+        .expect("WebSocket connection failed");
+
+    println!("WebSocket connected!");
+    Ok(stream)
+}
+
+pub async fn scan_data_to_server(data: &Value, uuid: &str,action :&str) -> Result<(), Box<dyn std::error::Error>> {
+    let mut conn = establish_connection(&CONFIG.db_path);
+    let url = format!("{}/api/agent/init/data/{}/{}/", base_url(),uuid,action);
+    let client = reqwest::Client::builder()
+        .danger_accept_invalid_certs(true)
+        .build()?;
+
+    let response = client
+        .patch(&url)
+        .header("Content-Type", "application/json")
+        .json(&data)
+        .send()
+        .await?;
+
+    if response.status().is_success() {
+        println!("[INFO] Data sent successfully to server.");
+        let response_text = response.text().await?;
+        let json_data: Value = serde_json::from_str(&response_text)?;
+        match update_initial_data(&mut conn, &uuid, &action, &json_data){
+            Ok(_) => {
+                println!("[INFO] Response updated data stored successfully");
+                return Ok(());
+            }
+            Err(e) => eprintln!("[ERROR] Error storing data: {:?}", e),
+        }
+      
+    } else {
+        println!("[ERROR] Failed to send data to server. Status: {}", response.status());
+    }
+    
+
+    Ok(())
+    
+
 }
