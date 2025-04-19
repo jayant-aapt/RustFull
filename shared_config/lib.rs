@@ -22,14 +22,18 @@ pub struct Config {
 
 impl Config {
     pub fn new() -> Self {
+<<<<<<< HEAD
         let app_dir = env::var("APP_DIR").unwrap_or_else(|_| "D:/ModifiedRust/RustFull".to_string());
+=======
+        let app_dir = env::var("APP_DIR").unwrap_or_else(|_| "D:/NewRustFull/RUSTFULL".to_string());
+>>>>>>> 988e83801efc0fc0d06d0d1387e6971d75698051
         let config = Self {
             //bridge paths:
             b_jwt_path: env::var("JWT_PATH").unwrap_or_else(|_| format!("{}/nats/nsc_creds/BridgeUser.jwt", app_dir)),
             b_nkey_path: env::var("NKEY_PATH").unwrap_or_else(|_| format!("{}/nats/nsc_creds/BridgeUser.nk", app_dir)),
             bridge_cert_path: env::var("BRIDGE_CERT_PATH").unwrap_or_else(|_| format!("{}/nats/nats_config/certificate/bridge-cert.pem", app_dir)),
             bridge_key_path: env::var("BRIDGE_KEY_PATH").unwrap_or_else(|_| format!("{}/nats/nats_config/certificate/bridge-key.pem", app_dir)),
-            external_url: env::var("EXTERNAL_URL").unwrap_or_else(|_| "https://192.168.100.13/api/agent/init/data/".to_string()),
+            external_url: env::var("EXTERNAL_URL").unwrap_or_else(|_| "https://192.168.100.12/api/agent/init/data/".to_string()),
             
             //collector paths:
             c_jwt_path: env::var("JWT_PATH").unwrap_or_else(|_| format!("{}/nats/nsc_creds/CollectorUser.jwt", app_dir)),
@@ -40,10 +44,10 @@ impl Config {
             //common paths:
             jwt_private_key_path: env::var("JWT_PRIVATE_KEY_PATH").unwrap_or_else(|_| format!("{}/nats/jwt_keys/private.pem", app_dir)),
             jwt_public_key_path: env::var("JWT_PUBLIC_KEY_PATH").unwrap_or_else(|_| format!("{}/nats/jwt_keys/public.pem", app_dir)),
-            nats_url: env::var("NATS_URL").unwrap_or_else(|_| "tls://127.0.0.1:4222".to_string()),
+             nats_url: env::var("NATS_URL").unwrap_or_else(|_| "tls://127.0.0.1:4222".to_string()),
             ca_cert_path: env::var("CA_CERT_PATH").unwrap_or_else(|_| format!("{}/nats/nats_config/certificate/ca-cert.pem", app_dir)),
             
-
+ 
             db_path: env::var("DB_PATH").unwrap_or_else(|_| format!("{}/models_database/models_database.sqlite", app_dir)),
             
 

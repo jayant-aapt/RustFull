@@ -1,11 +1,19 @@
 use pyo3::prelude::*;
 use pyo3::types::PyList;
+<<<<<<< HEAD
 use once_cell::sync::OnceCell;
 use shared_config::CONFIG;
 
 // Caches for both AgentData and Monitoring classes
 static AGENT_INSTANCE: OnceCell<Py<PyAny>> = OnceCell::new();
 static MONITOR_INSTANCE: OnceCell<Py<PyAny>> = OnceCell::new();
+=======
+use shared_config::CONFIG;
+
+/// Collects agent data using a Python module and returns it as a JSON string
+pub fn agent_data() -> PyResult<String> {
+    pyo3::prepare_freethreaded_python(); 
+>>>>>>> 988e83801efc0fc0d06d0d1387e6971d75698051
 
 fn get_class_instance<'a>(py: Python<'a>,instance_cell: &'a OnceCell<Py<PyAny>>,module_name: &str,class_name: &str,) -> PyResult<&'a Py<PyAny>> {
     instance_cell.get_or_try_init(|| {

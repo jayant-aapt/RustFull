@@ -12,7 +12,7 @@ import pythoncom
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 class AgentData:
-
+  
     def __init__(self):
         pythoncom.CoInitialize()
         self.wmi_obj = wmi.WMI()
@@ -222,7 +222,7 @@ class AgentData:
             
         except Exception as e:
             logging.error("Error collecting system data: %s", e)
-            return {}
+            return {} 
 
 
     
