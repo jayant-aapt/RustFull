@@ -6,4 +6,4 @@ file = "src/schema.rs"
 custom_type_derives = ["diesel::query_builder::QueryId", "Clone"]
  
 [migrations_directory]
-dir = "D:/ModifiedRust/RustFull/models_database/migrations"
+dir = "C:/Users/ADMIN/Desktop/ModifiedRust/RustFull/models_database/migrations"

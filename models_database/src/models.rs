@@ -60,7 +60,7 @@ pub struct Memory {
     pub os_uuid: Option<String>,
 }
 
-#[derive(Debug, Insertable, Deserialize)]
+#[derive(Debug, Insertable, AsChangeset, Deserialize,Queryable)]
 #[diesel(table_name = crate::schema::storage)]
 pub struct Storage {
     pub uuid: String,
@@ -91,7 +91,7 @@ pub struct Partition {
     pub os_uuid: Option<String>,
 }
 
-#[derive(Debug, Insertable, Deserialize)]
+#[derive(Debug, Insertable, Deserialize, Queryable,AsChangeset)]
 #[diesel(table_name = crate::schema::nic)]
 pub struct Nic {
     pub uuid: String,
@@ -106,7 +106,7 @@ pub struct Nic {
     pub os_uuid: Option<String>,
 }
 
-#[derive(Debug, Insertable, Deserialize)]
+#[derive(Debug, Insertable, Deserialize, Queryable)]
 #[diesel(table_name = crate::schema::port)]
 pub struct Port {
     pub uuid: String,
@@ -119,7 +119,7 @@ pub struct Port {
     pub os_uuid: Option<String>,
 }
 
-#[derive(Debug, Insertable, Deserialize)]
+#[derive(Debug, Insertable, Deserialize , Queryable)]
 #[diesel(table_name = crate::schema::ip_address)]
 pub struct Ip {
     pub uuid: String,

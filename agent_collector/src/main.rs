@@ -138,20 +138,20 @@ tokio::spawn(async move {
             if let Some(action) = json.get("action").and_then(|v| v.as_str()) {
                 let uuid_value = json.get("uuid").and_then(|v| v.as_str()).unwrap_or("");
                 match action {
-                    "Partition" => {
-                        info!("Scanning partition..............................");
-                        match agent_lib::scan_partition() {
-                            Ok(partition) => send_scan_response(&publisher, action, uuid_value, partition).await,
-                            Err(e) => eprintln!("Failed to scan partition: {e}"),
-                        }
-                    },
-                    "Disk" => {
+                    "disk" => {
                         info!("Scanning disk............................................");
-                        match agent_lib::scan_disk() {
+                        match agent_lib::scan_disk(action) {
                             Ok(disk) => send_scan_response(&publisher, action, uuid_value, disk).await,
                             Err(e) => eprintln!("Failed to scan disk: {e}"),
                         }
-                    },
+                    }
+                    "nic" => {
+                        info!("Scanning nic details............................................");
+                        match agent_lib::scan_nic(action) {
+                            Ok(nic_data) => send_scan_response(&publisher, action, uuid_value, nic_data).await,
+                            Err(e) => eprintln!("Failed to scan disk: {e}"),
+                        }
+                    }
                     _ => {
                         eprintln!("Unknown action received: {}", action);
                     }
@@ -164,8 +164,10 @@ tokio::spawn(async move {
 Ok(())
 }
 
-async fn send_scan_response<T: serde::Serialize>(publisher: &NatsPublisher,   action: &str,uuid: &str ,data: T) {
+async fn send_scan_response<T: serde::Serialize + std::fmt::Debug>(publisher: &NatsPublisher,   action: &str,uuid: &str ,data: T) {
     let original_json = serde_json::json!(data);
+    println!("Original JSON: {}", original_json);
+    println!("Dtata: {:?}", data);
     
         let message_json = serde_json::json!({
             "uuid": uuid,
