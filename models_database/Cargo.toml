@@ -22,7 +22,10 @@ chrono = "0.4.35"
 diesel_migrations = "2.1"
 anyhow = "1.0"
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> ab3a6b5 (Updated by 30/04)
 =======
 >>>>>>> ab3a6b5 (Updated by 30/04)
 
