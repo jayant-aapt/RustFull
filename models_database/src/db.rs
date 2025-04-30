@@ -7,7 +7,7 @@ use crate::schema::agent::dsl::{agent, os};
 use crate::schema::agent_credential::dsl::*;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
-use crate::initail_response::{insert_or_update, store_json_data}; 
+use crate::initail_response::{insert_partition, store_json_data}; 
 use chrono::NaiveDateTime;
 #[derive(Debug, Deserialize, Serialize)]
 pub struct ServerResponse {
@@ -102,7 +102,7 @@ pub fn save_token(conn: &mut SqliteConnection, token_str: &str, expiration_str: 
             expiration.eq(expiration_str),
             token_type.eq(token_type_str),
         ))
-        .on_conflict(token_type)
+        .on_conflict(token)
         .do_update()
         .set((
             token.eq(token_str),
@@ -143,16 +143,13 @@ pub fn token_exists(conn: &mut SqliteConnection, token_type_str: &str) -> bool {
         .is_some()
 }
 
-pub fn update_initial_data(conn: &mut SqliteConnection, action: &str, json_data: &Value) -> Result<(), diesel::result::Error> {
-    if action == "disk"|| action == "nic" {
-        if let Some(devices) = json_data.as_array() {
-            match insert_or_update(conn, devices) {
-                Ok(_) => println!("updated successfully."),
-                Err(e) => eprintln!("Error: {:?}", e),
-            }
-        } else {
-            eprintln!("Expected an array for disk action, but got something else.");
+pub fn update_initial_data(conn: &mut SqliteConnection,p_uuid: &str,action:&str,json_data: &Value) -> Result<(), diesel::result::Error> {
+    if action == "Partition" {
+        match insert_partition(conn, json_data, p_uuid) {
+            Ok(_) => println!("Inserted partition."),
+            Err(e) => eprintln!("Error: {:?}", e),
         }
     }
     Ok(())
+
 }

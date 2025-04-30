@@ -123,9 +123,9 @@ CREATE TABLE gpu (
 
 CREATE TABLE tokens (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    token TEXT NOT NULL ,
+    token TEXT NOT NULL UNIQUE,
     expiration TEXT NOT NULL,
-    token_type TEXT NOT NULL UNIQUE 
+    token_type TEXT NOT NULL 
 );
 
 -- Your SQL goes here

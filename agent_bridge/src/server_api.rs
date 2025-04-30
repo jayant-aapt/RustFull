@@ -58,7 +58,7 @@ pub async fn send_master_key_to_server(received_payload: &str) -> Result<(), Box
     };
 
     let api_key = "1234567890abcdef1234567890abcdef";
-
+    //let central_server_url = "https://192.168.100.13/api/agent/onboard/";
     let central_server_url = base_url().to_string() + "/api/agent/onboard/";
 
     let client = reqwest::Client::builder().danger_accept_invalid_certs(true).build()?;
@@ -153,18 +153,50 @@ pub async fn send_to_server(data: &str, token: &str) -> Result<String, Box<dyn s
         .build()
         .expect("Failed to create reqwest client with SSL validation");
 
+    async fn send_initial_data(client: &Client,url: &str,uuid: &str,token: &str,data: &str,) -> Result<Response, reqwest::Error> {
+        let json_data: serde_json::Value = serde_json::from_str(data).expect("Failed to parse JSON data");
+        client
+            .post(url)
+            .header("Content-Type", "application/json")
+            .header("Authorization", format!("Bearer {}", token))
+            .header("uuid", uuid)
+            .json(&json_data)
+            .send()
+            .await
+    }
 
-    let json_data: serde_json::Value = serde_json::from_str(data).expect("Failed to parse JSON data");
-    let response=client
-                .post(url)
-                .header("Content-Type", "application/json")
-                .header("Authorization", format!("Bearer {}", token))
-                .header("uuid", agent_uuid)
-                .json(&json_data)
-                .send()
-                .await?;
-    let status = response.status();
-    let response_text = response.text().await?;
+    let mut response = send_initial_data(&client, &url, &agent_uuid, &token, data).await?;
+    let mut status = response.status();
+    let mut response_text = response.text().await?;
+
+    if status == reqwest::StatusCode::UNAUTHORIZED || response_text.contains("Invalid or expired token") {
+        println!("[WARN] Token expired. Fetching new access token...");
+        match get_new_access_token("access_token").await {
+            Ok(new_token) => {
+                println!("[INFO] Retrying with new token...");
+                let new_token: String = match serde_json::from_str::<Value>(&new_token) {
+                    Ok(json_val) => {
+                        json_val.get("access_token")
+                            .and_then(|v| v.as_str())
+                            .unwrap_or("")
+                            .to_string()
+                    }
+                    Err(e) => {
+                        error!("Failed to parse new access token JSON: {}", e);
+                        "".to_string()
+                    }
+                };
+
+                response = send_initial_data(&client, &url, &agent_uuid, &new_token, data).await?;
+                status = response.status();
+                response_text = response.text().await?;
+            }
+            Err(e) => {
+                println!("[ERROR] Failed to refresh token: {}", e);
+                return Err("Token refresh failed".into());
+            }
+        }
+    }
 
     if status.is_success() {
         info!("Response from server: {}", response_text);
@@ -200,21 +232,7 @@ pub async fn send_to_monitor_server(data: &str, access_token: &str) -> Result<St
         Err(e) => {
             warn!("WebSocket failed: {}. Falling back to HTTPS.", e);
             match send_via_https(data, access_token, &agent_uuid).await {
-                Ok(response) => {
-                    match web_socket_connection(access_token, &agent_uuid).await {
-                        Ok(ws_stream) => {
-                            let mut ws_stream_lock = WS_CONNECTION.lock().await;
-                            *ws_stream_lock = Some(ws_stream);
-                            println!("WebSocket reconnected successfully!");
-                        },
-                        Err(reconnect_error) => {
-                            warn!("WebSocket reconnect failed after HTTPS. {}", reconnect_error);
-                        }
-                    }
-                    
-                    Ok(response)
-                },
-                
+                Ok(response) => Ok(response),
                 Err(e) => Err(format!("Both WebSocket and HTTPS failed: {}", e))
             }
         }
@@ -311,7 +329,6 @@ pub async fn scan_data_to_server(data: &Value, uuid: &str,action :&str) -> Resul
     let client = reqwest::Client::builder()
         .danger_accept_invalid_certs(true)
         .build()?;
-    println!("[INFO] Sending data to server: {:?}", data);
 
     let response = client
         .patch(&url)
@@ -324,8 +341,7 @@ pub async fn scan_data_to_server(data: &Value, uuid: &str,action :&str) -> Resul
         println!("[INFO] Data sent successfully to server.");
         let response_text = response.text().await?;
         let json_data: Value = serde_json::from_str(&response_text)?;
-        println!("[INFO] JSON data parsed successfully: {:?}", json_data);
-        match update_initial_data(&mut conn, &action, &json_data){
+        match update_initial_data(&mut conn, &uuid, &action, &json_data){
             Ok(_) => {
                 println!("[INFO] Response updated data stored successfully");
                 return Ok(());

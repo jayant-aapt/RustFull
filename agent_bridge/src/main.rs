@@ -104,50 +104,8 @@ async fn process_monitor_data(http_client: &reqwest::Client, payload: &str) -> R
     let token = match get_token(&mut conn, "access_token") {
         Some(token) => token.token,
         None => {
-            match get_new_access_token("access_token").await {
-                Ok(token) => {
-
-                    let token_json: Value = match serde_json::from_str(&token) {
-                        Ok(v) => v,
-                        Err(e) => {
-                            error!("Failed to parse token JSON: {}", e);
-                            return Err(Box::new(std::io::Error::new(std::io::ErrorKind::Other, "Failed to parse token JSON")));
-                        }
-                    };
-
-                    let expires_in = token_json.get("expires_in")
-                        .and_then(Value::as_i64)
-                        .unwrap_or(0);
-            
-                    let access_token_str = token_json.get("access_token")
-                        .and_then(Value::as_str)
-                        .unwrap_or("");
-            
-                    let expiration_time = (chrono::Local::now().naive_local()
-                        + chrono::Duration::seconds(expires_in))
-                        .format("%Y-%m-%d %H:%M:%S")
-                        .to_string();
-            
-
-                    if let Err(e) = save_token(&mut conn, access_token_str, &expiration_time, "access_token") {
-                        error!("Failed to save token to DB: {}", e);
-                    }
-        
-                    match get_token(&mut conn, "access_token") {
-                        Some(token) => token.token,
-                        None => {
-                            error!("Refresh token also expired or not found");
-                            
-                            String::new()
-                        }
-                    }
-                    
-                }
-                Err(e) => {
-                    error!("Failed to fetch access token: {}", e);
-                    String::new() 
-                }
-            }
+            error!("Token not found for type 'access_token'");
+            return Err(Box::new(std::io::Error::new(std::io::ErrorKind::NotFound, "Token not found")));
         }
     };
 
@@ -238,58 +196,14 @@ async fn handle_agent_data_operations(subscriber: Arc<Mutex<NatsSubscriber>>,pub
         info!("Bridge: Listening for 'agent.data'...");
         let data_payload = String::from_utf8_lossy(&msg.payload);
             let mut conn = establish_connection(&CONFIG.db_path);
-        
-
-            let token = match get_token(&mut conn, "access_token") {
+            let access_token = match get_token(&mut conn, "access_token") {
                 Some(token) => token.token,
                 None => {
-                    match get_new_access_token("access_token").await {
-                        Ok(token) => {
-
-                            let token_json: Value = match serde_json::from_str(&token) {
-                                Ok(v) => v,
-                                Err(e) => {
-                                    error!("Failed to parse token JSON: {}", e);
-                                    return Err(Box::new(std::io::Error::new(std::io::ErrorKind::Other, "Failed to parse token JSON")));
-                                }
-                            };
-
-                            let expires_in = token_json.get("expires_in")
-                                .and_then(Value::as_i64)
-                                .unwrap_or(0);
-                    
-                            let access_token_str = token_json.get("access_token")
-                                .and_then(Value::as_str)
-                                .unwrap_or("");
-                    
-                            let expiration_time = (chrono::Local::now().naive_local()
-                                + chrono::Duration::seconds(expires_in))
-                                .format("%Y-%m-%d %H:%M:%S")
-                                .to_string();
-                    
-       
-                            if let Err(e) = save_token(&mut conn, access_token_str, &expiration_time, "access_token") {
-                                error!("Failed to save token to DB: {}", e);
-                            }
-                
-                            match get_token(&mut conn, "access_token") {
-                                Some(token) => token.token,
-                                None => {
-                                    error!("Refresh token also expired or not found");
-                                    
-                                    String::new()
-                                }
-                            }
-                            
-                        }
-                        Err(e) => {
-                            error!("Failed to fetch access token: {}", e);
-                            String::new() 
-                        }
-                    }
+                    error!("Token not found for type 'access_token'");
+                    return Err(Box::new(std::io::Error::new(std::io::ErrorKind::NotFound, "Token not found")));
                 }
             };
-            match send_to_server(&data_payload, &token).await {
+            match send_to_server(&data_payload, &access_token).await {
                 Ok(response_msg) => {
                     info!("Bridge: Server responded: {}", response_msg);
 
@@ -344,46 +258,39 @@ async fn handle_monitor_data_operations(subscriber: Arc<Mutex<NatsSubscriber>>,p
     Ok(())
 }
 
-pub async fn handle_scan_data_operations(
-    subscriber: Arc<Mutex<NatsSubscriber>>,
-    _publisher: NatsPublisher,
-    _http_client: reqwest::Client,
-) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
+async fn handle_scan_data_operations(subscriber: Arc<Mutex<NatsSubscriber>>, publisher: NatsPublisher,http_client: reqwest::Client,) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     let mut subscribers = subscriber.lock().await;
     let mut new_subscriber = subscribers.client().subscribe("send.scan.>".to_string()).await?;
-    info!("Listening for scan data...");
+    info!("Listening for scan data........");
 
-    while let Some(response_msg) = new_subscriber.next().await {
+    if let Some(response_msg) = new_subscriber.next().await {
         let response_payload = String::from_utf8_lossy(&response_msg.payload);
         info!("Received raw response: {}", response_payload);
 
-        let json: Value = match serde_json::from_str(&response_payload) {
-            Ok(j) => j,
-            Err(e) => {
-                error!("Failed to parse JSON: {}", e);
-                continue;
-            }
-        };
-
-
+        let json: Value = serde_json::from_str(&response_payload)?;
+        // Extract fields dynamically
         if let (Some(action), Some(uuid), Some(result)) = (
             json.get("action").and_then(|v| v.as_str()),
             json.get("uuid").and_then(|v| v.as_str()),
-            json.get("result"),
+            json.get("result").and_then(|v| v.as_str()),
         ) {
-            info!("Action: {}, UUID: {}, Result: {}", action, uuid, result);
-
-
-            if let Err(e) = scan_data_to_server(result, uuid, action).await {
-                error!("Failed to send scan data to server: {}", e);
-            }
-        } else {
-            error!("Missing required fields in received message.");
+            
+            let final_json = serde_json::json!({ action: result });
+           
+            scan_data_to_server(&final_json, uuid, action)
+                .await
+                .unwrap_or_else(|e| {
+                    error!("Failed to send scan data to server: {}", e);
+                });
         }
+        
+       
+        
     }
 
     Ok(())
-}
+} 
+
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
