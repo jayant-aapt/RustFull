@@ -24,3 +24,4 @@ Thumbs.db
 *.dll
 *.so
 *.dylib
+models_database/models_database.sqlite 
