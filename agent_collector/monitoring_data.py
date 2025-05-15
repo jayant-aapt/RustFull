@@ -74,7 +74,7 @@ class Monitoring:
 
         try:
             for mem in self.wmi_obj.Win32_PhysicalMemory():
-                self.hardware_identifiers['memory_serial_number'] = mem.SerialNumber.strip()
+                self.hardware_identifiers['memory_make'] =  mem.Manufacturer.strip()
                 break
         except Exception as e:
             logging.error("Error retrieving memory serial number: %s", e)
@@ -185,7 +185,7 @@ class Monitoring:
 
     def get_memory_info(self):
         memory_info = psutil.virtual_memory()
-        uuid = self.get_uuid_by_name("memory_monitoring", "make", 'Virtual')
+        uuid = self.get_uuid_by_name("memory_monitoring", "make", self.hardware_identifiers.get('memory_make', 'Virtual'))
         return {
             "memory_uuid": uuid,
             "memory_used": round(memory_info.used),
