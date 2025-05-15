@@ -381,16 +381,13 @@ pub fn delete_action(conn: &mut SqliteConnection, json_data: &Value) -> Result<(
 
         match table_name {
             "partition" => {
-                diesel::delete(partition.filter(uuid.eq_any(&uuid_list)))
-                    .execute(conn)?;
+                diesel::delete(partition::table.filter(partition::uuid.eq_any(&uuid_list))).execute(conn)?;
             }
             "storage" => {
-                diesel::delete(storage.filter(uuid.eq_any(&uuid_list)))
-                    .execute(conn)?;
+                diesel::delete(storage::table.filter(storage::uuid.eq_any(&uuid_list))).execute(conn)?;
             }
             "nic" => {
-                diesel::delete(nic.filter(uuid.eq_any(&uuid_list)))
-                    .execute(conn)?;
+                diesel::delete(nic::table.filter(nic::uuid.eq_any(&uuid_list))).execute(conn)?;
             }
             _ => {
                 println!("Unsupported table name: {}", table_name);

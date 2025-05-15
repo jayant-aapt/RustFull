@@ -329,7 +329,7 @@ async fn handle_monitor_data_operations(subscriber: Arc<Mutex<NatsSubscriber>>,p
                         if deleted.as_bool().unwrap_or(false) {
                             info!("Deleting initial data from the database");
                             let mut conn = establish_connection(&CONFIG.db_path);
-                            if let Err(e) = delete_initial_data(&mut conn,&json_value).await {
+                            if let Err(e) = delete_initial_data(&mut conn,&json_value) {
                                 error!("Failed to delete initial data: {}", e);
                             }
                         }
