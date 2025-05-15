@@ -12,7 +12,6 @@ pub struct Config {
     pub ca_cert_path: String,
     pub bridge_cert_path: String,
     pub bridge_key_path: String,
-    pub external_url: String,
     pub client_cert_path: String,
     pub client_key_path: String,
     pub central_server_url: String,
@@ -22,14 +21,13 @@ pub struct Config {
 
 impl Config {
     pub fn new() -> Self {
-        let app_dir = env::var("APP_DIR").unwrap_or_else(|_| "D:/ModifiedRust/RustFull".to_string());
+        let app_dir = env::var("APP_DIR").unwrap_or_else(|_| "C:/Users/ADMIN/Desktop/ModifiedRust/RustFull".to_string());
         let config = Self {
             //bridge paths:
             b_jwt_path: env::var("JWT_PATH").unwrap_or_else(|_| format!("{}/nats/nsc_creds/BridgeUser.jwt", app_dir)),
             b_nkey_path: env::var("NKEY_PATH").unwrap_or_else(|_| format!("{}/nats/nsc_creds/BridgeUser.nk", app_dir)),
             bridge_cert_path: env::var("BRIDGE_CERT_PATH").unwrap_or_else(|_| format!("{}/nats/nats_config/certificate/bridge-cert.pem", app_dir)),
             bridge_key_path: env::var("BRIDGE_KEY_PATH").unwrap_or_else(|_| format!("{}/nats/nats_config/certificate/bridge-key.pem", app_dir)),
-            external_url: env::var("EXTERNAL_URL").unwrap_or_else(|_| "https://192.168.100.13/api/agent/init/data/".to_string()),
             
             //collector paths:
             c_jwt_path: env::var("JWT_PATH").unwrap_or_else(|_| format!("{}/nats/nsc_creds/CollectorUser.jwt", app_dir)),

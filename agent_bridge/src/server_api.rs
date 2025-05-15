@@ -1,4 +1,4 @@
-use serde::Serialize;
+use serde::{Serialize, Deserialize};
 use tracing::{info, error,warn};
 use std::collections::HashMap;
 use reqwest::Client;
@@ -37,9 +37,11 @@ lazy_static::lazy_static! {
     static ref WS_CONNECTION: Arc<Mutex<Option<WSStream>>> = Arc::new(Mutex::new(None));
 }
 
-#[derive(Serialize)]
+#[derive(Serialize,Deserialize, Debug)]
 struct MasterKeyPayload {
     master_key: String,
+    hostname: String,
+    os: String,
 }
 
 /// Submits the master key to the server for onboarding
@@ -53,12 +55,9 @@ pub async fn send_master_key_to_server(received_payload: &str) -> Result<(), Box
         return Ok(());
     }
 
-    let payload = MasterKeyPayload {
-        master_key: general_purpose::STANDARD.encode(received_payload),
-    };
+    let payload: MasterKeyPayload = serde_json::from_str(received_payload)?;
 
     let api_key = "1234567890abcdef1234567890abcdef";
-    //let central_server_url = "https://192.168.100.13/api/agent/onboard/";
     let central_server_url = base_url().to_string() + "/api/agent/onboard/";
 
     let client = reqwest::Client::builder().danger_accept_invalid_certs(true).build()?;
@@ -325,6 +324,7 @@ async fn web_socket_connection(access_token: &str, agent_uuid: &str) -> Result<W
 
 pub async fn scan_data_to_server(data: &Value, uuid: &str,action :&str) -> Result<(), Box<dyn std::error::Error>> {
     let mut conn = establish_connection(&CONFIG.db_path);
+    let action = if action == "partition" { "disk" } else { action };
     let url = format!("{}/api/agent/init/data/{}/{}/", base_url(),uuid,action);
     let client = reqwest::Client::builder()
         .danger_accept_invalid_certs(true)
@@ -341,7 +341,7 @@ pub async fn scan_data_to_server(data: &Value, uuid: &str,action :&str) -> Resul
         println!("[INFO] Data sent successfully to server.");
         let response_text = response.text().await?;
         let json_data: Value = serde_json::from_str(&response_text)?;
-        match update_initial_data(&mut conn, &uuid, &action, &json_data){
+        match update_initial_data(&mut conn,  &action, &json_data){
             Ok(_) => {
                 println!("[INFO] Response updated data stored successfully");
                 return Ok(());

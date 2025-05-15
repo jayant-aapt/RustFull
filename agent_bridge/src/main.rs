@@ -12,7 +12,7 @@ use tokio::sync::Mutex;
 mod server_api; 
 use server_api::{send_master_key_to_server, send_to_server, get_new_access_token,send_to_monitor_server,scan_data_to_server};
 use models_database::db::{
-    establish_connection,save_token,get_token,token_exists,
+    establish_connection,save_token,get_token,token_exists,delete_initial_data,
 };
 
 //mod config; // Add this line to include the config module
@@ -324,6 +324,19 @@ async fn handle_monitor_data_operations(subscriber: Arc<Mutex<NatsSubscriber>>,p
             Ok(response_data) => {
                 info!("Received monitor server response: {}", response_data);
                 if let Ok(json_value) = serde_json::from_str::<serde_json::Value>(&response_data) {
+
+                   if let Some(deleted) = json_value.get("deleted") {
+                        if deleted.as_bool().unwrap_or(false) {
+                            info!("Deleting initial data from the database");
+                            let mut conn = establish_connection(&CONFIG.db_path);
+                            if let Err(e) = delete_initial_data(&mut conn,&json_value).await {
+                                error!("Failed to delete initial data: {}", e);
+                            }
+                        }
+                    } else {
+                        info!("No deletion flag found in the response");
+                        
+                    }
 
                     if let Some(action) = json_value.get("action").and_then(|v| v.as_str()) {
                             if let Err(e) = publisher.publish(&format!("scan.{}", action), &json_value).await {

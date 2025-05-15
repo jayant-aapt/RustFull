@@ -29,6 +29,9 @@ rand = "0.8"
 dirs = "5.0"
 shared_config = { path = "../shared_config" }
 models_database = { path = "../models_database" }
+hostname = "0.4.1"
+sys-info = "0.9"    # optional, for detailed OS info
+
 
 
 windows = { version = "0.48", features = [

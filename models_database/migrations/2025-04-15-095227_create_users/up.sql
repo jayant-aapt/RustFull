@@ -66,6 +66,7 @@ CREATE TABLE partition (
     uuid TEXT PRIMARY KEY  NOT NULL,
     storage_uuid TEXT NOT NULL,
     name TEXT NOT NULL,
+    serial_number TEXT NOT NULL,
     fs_type TEXT NOT NULL,
     free_space TEXT NOT NULL,
     used_space TEXT NOT NULL,
@@ -83,6 +84,7 @@ CREATE TABLE nic (
     max_speed TEXT NOT NULL,
     supported_speeds TEXT NOT NULL,
     serial_number TEXT NOT NULL,
+    mac_address TEXT NOT NULL,
     os_uuid TEXT,
     FOREIGN KEY (device_uuid) REFERENCES device(uuid)
 );

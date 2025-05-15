@@ -89,6 +89,7 @@ diesel::table! {
         max_speed -> Text,
         supported_speeds -> Text,
         serial_number -> Text,
+        mac_address -> Text,
         os_uuid -> Nullable<Text>,
     }
 }
@@ -98,6 +99,7 @@ diesel::table! {
         uuid -> Text,
         storage_uuid -> Text,
         name -> Text,
+        serial_number -> Text,
         fs_type -> Text,
         free_space -> Text,
         used_space -> Text,

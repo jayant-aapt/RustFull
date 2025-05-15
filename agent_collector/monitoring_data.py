@@ -26,13 +26,16 @@ TABLE_UUID_MAP = {
 class Monitoring:
     def _init_wmi(self):
         try:
+            pythoncom.CoUninitialize() 
+        except pythoncom.com_error:
+            pass
+        try:
             pythoncom.CoInitialize()
             self.wmi_obj = wmi.WMI()
         except Exception as e:
             logging.error(f"Failed to initialize WMI: {e}")
 
     def __init__(self):
-        pythoncom.CoInitialize()
         self._init_wmi()
         db_path = os.path.abspath(r"C:\Users\ADMIN\Desktop\ModifiedRust\RustFull\models_database\models_database.sqlite")
         self.engine = create_engine(f"sqlite:///{db_path}")
@@ -47,7 +50,7 @@ class Monitoring:
             'memory_serial_number': None,
             'cpu_processor_id': None,
             'disk_serial_number': None,
-            'partition_volume_uuids': {},
+            'partition_volume_serials': {},
         }
         self.cache_hardware_identifiers()
 
@@ -61,17 +64,17 @@ class Monitoring:
         if not self.wmi_obj:
             logging.warning("Skipping hardware identifier caching because WMI is not available.")
             return
-        
+
         try:
             system = self.wmi_obj.Win32_ComputerSystem()[0]
             model=system.Model.strip() if system.Model else "Unknown"
             self.hardware_identifiers['device_model'] = model
-        except Exception as e:  
+        except Exception as e:
             logging.error("Error retrieving device model: %s", e)
 
         try:
             for mem in self.wmi_obj.Win32_PhysicalMemory():
-                self.hardware_identifiers['make'] = mem.Manufacturer.strip()
+                self.hardware_identifiers['memory_serial_number'] = mem.SerialNumber.strip()
                 break
         except Exception as e:
             logging.error("Error retrieving memory serial number: %s", e)
@@ -100,19 +103,19 @@ class Monitoring:
             logging.error("Error retrieving disk serial numbers: %s", e)
 
         try:
-            for vol in self.wmi_obj.Win32_Volume():
-                if vol.DriveLetter:
-                    match = re.search(r"Volume{(.+?)}", vol.DeviceID)
-                    if match:
-                        self.hardware_identifiers['partition_volume_uuids'][vol.DriveLetter.upper()] = match.group(1)
+            if self.wmi_obj:
+                for disk in self.wmi_obj.Win32_LogicalDisk():
+                    if disk.DriveType == 3 and disk.VolumeSerialNumber and disk.DeviceID:
+                        self.hardware_identifiers['partition_volume_serials'][disk.DeviceID.upper()] = disk.VolumeSerialNumber
         except Exception as e:
-            logging.error("Error retrieving partition volume UUIDs: %s", e)
+            logging.error("Error retrieving partition volume serial numbers: %s", e)
 
     def has_db_changed(self):
         mod_time = os.path.getmtime(self.db_path)
         if mod_time != self.last_mod_time:
             self.last_mod_time = mod_time
             self.uuid_cache.clear()
+            self._init_wmi()
             self.cache_hardware_identifiers()
             return True
         return False
@@ -120,8 +123,8 @@ class Monitoring:
     def get_uuid_by_name(self, logical_table_name, name_field, name_value):
         if not name_value:
             logging.error(f"Missing name_value for table: {logical_table_name}, field: {name_field}")
-            return ("unknown", "unknown") if logical_table_name == "partition_monitoring" else "unknown"
-        
+            return ("unknown", "unknown") if logical_table_name == "partition_monitoring" or logical_table_name=="network_monitoring" else "unknown"
+
         if self.has_db_changed():
             logging.info("Database modified — clearing cache.")
 
@@ -131,34 +134,44 @@ class Monitoring:
 
         table_name = TABLE_UUID_MAP.get(logical_table_name)
         if not table_name:
-            return ("unknown", "unknown") if logical_table_name == "partition_monitoring" else "unknown"
+            return ("unknown", "unknown") if logical_table_name == "partition_monitoring" or logical_table_name=="network_monitoring" else "unknown"
 
         try:
             table = Table(table_name, self.metadata, autoload_with=self.engine)
 
             if logical_table_name == "partition_monitoring":
                 result = self.session.query(table.c.uuid, table.c.storage_uuid) \
-                         .filter(getattr(table.c, name_field) == name_value) \
-                         .first()
+                                    .filter(getattr(table.c, name_field) == name_value) \
+                                    .first()
 
                 uuid, storage_uuid = (result.uuid, result.storage_uuid) if result and result.uuid and result.storage_uuid else ("unknown", "unknown")
-    
+
                 self.uuid_cache[cache_key] = (uuid, storage_uuid)
                 return uuid, storage_uuid
+            elif logical_table_name == "network_monitoring":
+                result = self.session.query(table.c.uuid, table.c.nic_uuid) \
+                                    .filter(getattr(table.c, name_field) == name_value) \
+                                    .first()
+
+                uuid, nic_uuid = (result.uuid, result.nic_uuid) if result and result.uuid and result.nic_uuid else ("unknown", "unknown")
+
+                self.uuid_cache[cache_key] = (uuid, nic_uuid)
+                return uuid, nic_uuid
             else:
                 result = self.session.query(table.c.uuid)\
-                                     .filter(getattr(table.c, name_field) == name_value).first()
+                                    .filter(getattr(table.c, name_field) == name_value).first()
                 uuid = result[0] if result else "unknown"
                 self.uuid_cache[cache_key] = uuid
                 return uuid
         except Exception as e:
-            logging.error(f"Error fetching UUID for {name_value}: {e}")
-            return ("unknown", "unknown") if logical_table_name == "partition_monitoring" else "unknown"
+            logging.error(f"Error fetching UUID for {name_value} in {logical_table_name}: {e}")
+            return ("unknown", "unknown") if logical_table_name == "partition_monitoring" or logical_table_name=="network_monitoring" else "unknown"
+
 
     def get_monitoring_checkpoint(self):
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         return {
-            "device_uuid": self.get_uuid_by_name("device", "model", self.hardware_identifiers['device_model']),
+            "device_uuid": self.get_uuid_by_name("device", "model", self.hardware_identifiers.get('device_model', 'Unknown')),
             "event_type": "MON_DATA",
             "description": "monitoring data",
             "date": timestamp.split()[0],
@@ -172,7 +185,7 @@ class Monitoring:
 
     def get_memory_info(self):
         memory_info = psutil.virtual_memory()
-        uuid = self.get_uuid_by_name("memory_monitoring", "make", self.hardware_identifiers['make'] or "Virtual")
+        uuid = self.get_uuid_by_name("memory_monitoring", "make", 'Virtual')
         return {
             "memory_uuid": uuid,
             "memory_used": round(memory_info.used),
@@ -196,7 +209,7 @@ class Monitoring:
             for i, usages in physical_core_map.items()
         }
 
-        uuid = self.get_uuid_by_name("cpu_monitoring", "model", self.hardware_identifiers['cpu_model'])
+        uuid = self.get_uuid_by_name("cpu_monitoring", "model", self.hardware_identifiers.get('cpu_model', 'Unknown'))
         return {
             "cpu_uuid": uuid,
             "p_cores_perc": physical_cores_usage,
@@ -207,42 +220,32 @@ class Monitoring:
             "syscalls": cpu_stats.syscalls,
         }
 
+
+
     def get_disk_info(self):
         result = []
-        if not self.wmi_obj:
-            logging.warning("WMI not initialized — skipping disk monitoring.")
-            return result
+        try:
+            io_counters = psutil.disk_io_counters(perdisk=True)
 
-        io_counters = psutil.disk_io_counters(perdisk=True)
+            for disk_name, io in io_counters.items():
 
-        for index, disk in enumerate(self.wmi_obj.Win32_DiskDrive()):
-            name = f"PhysicalDrive{index}"
-            io = io_counters.get(name, None)
-            total_size = 0
-            total_used = 0
+                uuid = self.get_uuid_by_name("disk_monitoring", "serial_number", disk_name.upper())
 
-            for partition in disk.associators("Win32_DiskDriveToDiskPartition"):
-                for logical_disk in partition.associators("Win32_LogicalDiskToPartition"):
-                    try:
-                        usage = psutil.disk_usage(logical_disk.DeviceID + "\\")
-                        total_size += usage.total
-                        total_used += usage.used
-                    except Exception:
-                        continue
+                result.append({
+                    "disk_uuid": uuid,
+                    "read_count_io": io.read_count,
+                    "write_count_io": io.write_count,
+                    "bytes_read_io": io.read_bytes,
+                    "bytes_write_io": io.write_bytes,
+                    "read_time_io": io.read_time,
+                    "write_time_io": io.write_time
+                })
 
-            uuid = self.get_uuid_by_name("disk_monitoring", "serial_number", disk.DeviceID.split("\\")[-1])
-            result.append({
-                "disk_uuid": uuid,
-                "total_disk_size": total_size,
-                "total_disk_usage": total_used,
-                "read_count_io": io.read_count if io else 0,
-                "write_count_io": io.write_count if io else 0,
-                "bytes_read_io": io.read_bytes if io else 0,
-                "bytes_write_io": io.write_bytes if io else 0,
-                "read_time_io": io.read_time if io else 0,
-                "write_time_io": io.write_time if io else 0
-            })
+        except Exception as e:
+            logging.error(f"Error in get_disk_info: {e}")
+
         return result
+
 
     def partition_monitoring(self):
         partitions_info = []
@@ -253,14 +256,14 @@ class Monitoring:
                 mount_point = partition.mountpoint.strip()
                 mount_letter = mount_point.strip("\\").rstrip(":") + ":"
                 usage = psutil.disk_usage(mount_point)
-                uuid, storage_uuid = self.get_uuid_by_name("partition_monitoring","os_uuid",self.hardware_identifiers['partition_volume_uuids'].get(mount_letter,None))
+                uuid, storage_uuid = self.get_uuid_by_name("partition_monitoring","serial_number",self.hardware_identifiers['partition_volume_serials'].get(mount_letter,None))
                 partitions_info.append({
                     "partition_uuid": uuid,
                     "disk_uuid": storage_uuid,
                     "mount_point": mount_letter,
                     "free_space": usage.free,
                     "used_space": usage.used,
-                    "used_space_perc": usage.percent
+                    "used_space_perc": f"{usage.percent} %"
                 })
             except PermissionError:
                 continue
@@ -277,9 +280,11 @@ class Monitoring:
         for iface, data in net_info.items():
             stats = net_stats.get(iface)
             if stats and stats.isup and (data.bytes_sent > 0 or data.bytes_recv > 0):
-                uuid = self.get_uuid_by_name("network_monitoring", "interface_name", iface)
+                
+                uuid ,nic_uuid= self.get_uuid_by_name("network_monitoring", "interface_name", iface)
                 network_data.append({
                     "port_uuid": uuid,
+                    "nic_uuid": nic_uuid,
                     "interface": iface,
                     "bytes_sent": data.bytes_sent,
                     "bytes_received": data.bytes_recv,
@@ -291,9 +296,7 @@ class Monitoring:
                     "drop_out": data.dropout,
                 })
         return network_data
-
-if __name__ == "__main__":
+if __name__ == "__main__":  
     monitoring = Monitoring()
     checkpoint = monitoring.get_monitoring_checkpoint()
-    print(json.dumps(checkpoint, indent=4))
-  
+    print(json.dumps(checkpoint, indent=4))    

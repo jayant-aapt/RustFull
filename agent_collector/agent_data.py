@@ -266,7 +266,7 @@ class AgentData:
     def __init__(self):
         pythoncom.CoInitialize()
         self.wmi_obj = wmi.WMI()
-        db_path = os.path.abspath(r"C:\Users\ADMIN\Desktop\ModifiedRustRustFull\models_database\models_database.sqlite")
+        db_path = os.path.abspath(r"C:\Users\ADMIN\Desktop\ModifiedRust\RustFull\models_database\models_database.sqlite")
         self.engine = create_engine(f"sqlite:///{db_path}")
         Session = sessionmaker(bind=self.engine)
         self.session = Session()
@@ -346,7 +346,7 @@ class AgentData:
                     memory_info.append({
                         "make": "Virtual",
                         "model": "System RAM",
-                        "speed": "Unknown",
+                        "speed": 0,
                         "size": int(cs.TotalPhysicalMemory) if cs.TotalPhysicalMemory else 0,
                         "serial_number": "Unknown"
                     })
@@ -355,7 +355,7 @@ class AgentData:
             return memory_info if memory_info else [{
                 "make": "Unknown",
                 "model": "Unknown",
-                "speed": "Unknown",
+                "speed": 0,
                 "size": 0,
                 "serial_number": "Unknown"
             }]
@@ -370,42 +370,90 @@ class AgentData:
                 "serial_number": "Unknown"
             }]
 
+    # def get_disk_partitions(self, disk, action=None):
+    #     partitions = []
+    #     try:
+    #         volumes = {vol.DriveLetter: vol for vol in self.wmi_obj.Win32_Volume() if vol.DriveLetter}
+    #         for partition in disk.associators("Win32_DiskDriveToDiskPartition"):
+    #             for logical_disk in partition.associators("Win32_LogicalDiskToPartition"):
+    #                 volume = volumes.get(logical_disk.DeviceID)
+    #                 volume_uuid = "UUID Not Found"
+    #                 if volume and volume.DeviceID:
+    #                     match = re.search(r"Volume{(.+?)}", volume.DeviceID)
+    #                     if match:
+    #                         volume_uuid = match.group(1)
+
+    #                 free = int(logical_disk.FreeSpace or 0)
+    #                 size = int(logical_disk.Size or 0)
+    #                 used = size - free
+
+    #                 partitions_data={
+    #                     "os_uuid": volume_uuid,
+    #                     "name": logical_disk.DeviceID,
+    #                     "fs_type": logical_disk.FileSystem or "Unknown",
+    #                     "free_space": free,
+    #                     "used_space": used,
+    #                     "total_size": size,
+    #                 }
+                    
+                    
+    #                 if action == "disk" or action == "partition":
+    #                     uuid=self.get_uuid_by_name("partition", "os_uuid", volume_uuid)
+    #                     partitions_data["uuid"]=uuid
+                        
+    #                 partitions.append(partitions_data)
+    #     except Exception as e:
+    #         logging.error("Error getting disk partitions: %s", e)
+    #     return partitions
+ 
+
     def get_disk_partitions(self, disk, action=None):
         partitions = []
         try:
             volumes = {vol.DriveLetter: vol for vol in self.wmi_obj.Win32_Volume() if vol.DriveLetter}
+            logical_disks = {ld.DeviceID: ld for ld in self.wmi_obj.Win32_LogicalDisk() if ld.DriveType == 3}
+
             for partition in disk.associators("Win32_DiskDriveToDiskPartition"):
                 for logical_disk in partition.associators("Win32_LogicalDiskToPartition"):
                     volume = volumes.get(logical_disk.DeviceID)
+                    logical_disk_obj = logical_disks.get(logical_disk.DeviceID)
+                    
                     volume_uuid = "UUID Not Found"
+                    volume_serial = "Serial Not Found"
+
+                    # Get UUID from DeviceID
                     if volume and volume.DeviceID:
                         match = re.search(r"Volume{(.+?)}", volume.DeviceID)
                         if match:
                             volume_uuid = match.group(1)
 
+                    # Get Serial Number from LogicalDisk
+                    if logical_disk_obj and logical_disk_obj.VolumeSerialNumber:
+                        volume_serial = logical_disk_obj.VolumeSerialNumber
+
                     free = int(logical_disk.FreeSpace or 0)
                     size = int(logical_disk.Size or 0)
                     used = size - free
 
-                    partitions_data={
+                    partitions_data = {
                         "os_uuid": volume_uuid,
+                        "serial_number": volume_serial,
                         "name": logical_disk.DeviceID,
                         "fs_type": logical_disk.FileSystem or "Unknown",
                         "free_space": free,
                         "used_space": used,
                         "total_size": size,
                     }
-                    
-                    
-                    if action == "disk":
-                        uuid=self.get_uuid_by_name("partition", "os_uuid", volume_uuid)
-                        partitions_data["uuid"]=uuid
-                        
+
+                    if action == "disk" or action == "partition":
+                        uuid = self.get_uuid_by_name("partition", "os_uuid", volume_uuid)
+                        partitions_data["uuid"] = uuid
+
                     partitions.append(partitions_data)
         except Exception as e:
             logging.error("Error getting disk partitions: %s", e)
         return partitions
-
+    
     def get_storage_details(self , action=None):
         try:
             # Get PowerShell disk UUIDs
@@ -445,7 +493,7 @@ class AgentData:
                     "partition": parts
                 }
                 
-                if action == "disk":
+                if action == "disk" or action=="partition":
                     uuid = self.get_uuid_by_name("storage", "serial_number", disk.DeviceID.split("\\")[-1])
                     storage_info["uuid"] = uuid
                     
@@ -477,6 +525,7 @@ class AgentData:
                     # Add the current port to the existing NIC entry
                     port_data={
                         "interface_name": getattr(nic, 'NetConnectionID', 'Unknown').strip(),
+                        "mac_address": getattr(nic, 'MACAddress', 'Unknown'),
                         "operating_speed": nic.Speed or "Unknown",
                         "is_physical_logical": "physical" if nic.PNPDeviceID else "logical",
                         "logical_type": "bridge" if nic.PNPDeviceID else "virtual",
@@ -508,6 +557,7 @@ class AgentData:
                     "max_speed": max_speed,
                     "supported_speeds": "1000, 2500",
                     "serial_number": serial_number,
+                    "mac_address": getattr(nic, 'MACAddress', 'Unknown').strip()
                     "port": [{
                         "interface_name": getattr(nic, 'NetConnectionID', 'Unknown').strip(),
                         "operating_speed": max_speed,
@@ -585,10 +635,10 @@ class AgentData:
  
     def scan_particular_action(self, action):
         try:
-            if action== "disk":
-               return{
-                     action: self.get_storage_details(action)
-               }
+            if action == "disk" or action == "partition":
+                return {
+                    "disk": self.get_storage_details(action)
+                }
             elif action == "nic":
                 return {
                     action: self.get_network_details(action)
@@ -600,6 +650,7 @@ class AgentData:
             return {}
 
 if __name__ == "__main__":
-    agent = AgentData()
-    data = agent.collect_data()
+    agent_data = AgentData()
+    data = agent_data.collect_data()
     print(json.dumps(data, indent=4))
+   

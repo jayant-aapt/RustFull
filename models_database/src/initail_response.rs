@@ -3,7 +3,7 @@ use diesel::result::Error;
 use serde_json::Value;
 use crate::models::*;
 use crate::schema::*;
-use anyhow::{Result, Context};
+use anyhow::{Result};
 
 pub fn store_json_data(conn: &mut SqliteConnection, json_data: &Value) -> Result<(), Error> {
     conn.transaction::<_, Error, _>(|conn| {
@@ -165,34 +165,240 @@ pub fn store_json_data(conn: &mut SqliteConnection, json_data: &Value) -> Result
 }
 
 
-pub fn insert_partition(conn: &mut SqliteConnection,data: &Value, uuid: &str ) -> Result<()> {
+pub fn insert_or_update(conn: &mut SqliteConnection, device_values: &[Value]) -> Result<(), Error> {
+    conn.transaction::<_, Error, _>(|conn| {
+        println!("Storing JSON data into the database...");
+        println!("All device_values: {:#?}", device_values);
 
-    let mut partition_data: Partition = serde_json::from_value(data.clone())
-    .context("Failed to parse partition data from JSON")?;
-    let existing_partition = partition::table
-        .filter(partition::storage_uuid.eq(uuid)) 
-        .first::<Partition>(conn)
-        .optional()?;  
+        for device_value in device_values {
+            let device_uuid = device_value
+                .get("device_uuid")
+                .and_then(|v| v.as_str())
+                .unwrap_or_default()
+                .to_string();
 
-    match existing_partition {
-        Some(_) => {
+            // === STORAGE HANDLING ===
+            if let Some(storage_value) = device_value.get("storage") {
+                println!("Processing storage data: {:?}", storage_value);
 
-            println!("Found matching storage_uuid, proceeding to insert partition.");
-
-            diesel::insert_into(partition::table)
-                .values(&partition_data)  
-                .execute(conn)
-                .map_err(|e| {
-                    println!("Failed to insert into partition table: {e}");
-                    e
+                let mut storage: Storage = serde_json::from_value(storage_value.clone()).map_err(|e| {
+                    println!("Failed to parse storage: {e}");
+                    Error::RollbackTransaction
                 })?;
+                storage.device_uuid = device_uuid.clone();
+                let storage_uuid = storage.uuid.clone();
 
-            println!("Partition data inserted successfully.");
-            Ok(())
+                let existing_storage = storage::table
+                    .filter(storage::uuid.eq(&storage_uuid))
+                    .first::<Storage>(conn)
+                    .optional()
+                    .map_err(|e| {
+                        println!("Failed to query storage: {e}");
+                        Error::RollbackTransaction
+                    })?;
+
+                if existing_storage.is_none() {
+                    diesel::insert_into(storage::table)
+                        .values(&storage)
+                        .execute(conn)
+                        .map_err(|e| {
+                            println!("Failed to insert storage: {e}");
+                            Error::RollbackTransaction
+                        })?;
+                    println!("Inserted storage: {}", storage_uuid);
+                } else {
+                    diesel::update(storage::table.filter(storage::uuid.eq(&storage_uuid)))
+                        .set(&storage)
+                        .execute(conn)
+                        .map_err(|e| {
+                            println!("Failed to update storage: {e}");
+                            Error::RollbackTransaction
+                        })?;
+                    println!("Updated storage: {}", storage_uuid);
+                }
+
+                // === PARTITIONS ===
+                if let Some(partitions) = storage_value.get("partition").and_then(|v| v.as_array()) {
+                    if partitions.is_empty() {
+                        println!("No partitions found for storage {}, skipping partition insertions.", storage_uuid);
+                        continue;
+                    }
+
+                    for part in partitions {
+                        let mut partition: Partition = serde_json::from_value(part.clone()).map_err(|e| {
+                            println!("Failed to parse partition: {e}");
+                            Error::RollbackTransaction
+                        })?;
+                        partition.storage_uuid = storage_uuid.clone();
+
+                        let partition_uuid = partition.uuid.clone();
+                        let existing_partition = partition::table
+                            .filter(partition::uuid.eq(&partition_uuid))
+                            .first::<Partition>(conn)
+                            .optional()
+                            .map_err(|e| {
+                                println!("Failed to query partition: {e}");
+                                Error::RollbackTransaction
+                            })?;
+
+                        if existing_partition.is_none() {
+                            diesel::insert_into(partition::table)
+                                .values(&partition)
+                                .execute(conn)
+                                .map_err(|e| {
+                                    println!("Failed to insert partition: {e}");
+                                    Error::RollbackTransaction
+                                })?;
+                            println!("Inserted partition: {}", partition_uuid);
+                        } else {
+                            println!("Partition {} already exists, skipping.", partition_uuid);
+                        }
+                    }
+                }
+            }
+
+            // === NIC HANDLING ===
+            if let Some(nic_value) = device_value.get("nic") {
+                println!("Processing NIC: {:?}", nic_value);
+
+                let mut nic: Nic = serde_json::from_value(nic_value.clone()).map_err(|e| {
+                    println!("Failed to parse NIC: {e}");
+                    Error::RollbackTransaction
+                })?;
+                nic.device_uuid = device_uuid.clone();
+                let nic_uuid = nic.uuid.clone();
+
+                let existing_nic = nic::table
+                    .filter(nic::uuid.eq(&nic_uuid))
+                    .first::<Nic>(conn)
+                    .optional()
+                    .map_err(|e| {
+                        println!("Failed to query NIC: {e}");
+                        Error::RollbackTransaction
+                    })?;
+
+                if existing_nic.is_none() {
+                    diesel::insert_into(nic::table)
+                        .values(&nic)
+                        .execute(conn)
+                        .map_err(|e| {
+                            println!("Failed to insert NIC: {e}");
+                            Error::RollbackTransaction
+                        })?;
+                    println!("Inserted NIC: {}", nic_uuid);
+                } else {
+                    diesel::update(nic::table.filter(nic::uuid.eq(&nic_uuid)))
+                        .set(&nic)
+                        .execute(conn)
+                        .map_err(|e| {
+                            println!("Failed to update NIC: {e}");
+                            Error::RollbackTransaction
+                        })?;
+                    println!("Updated NIC: {}", nic_uuid);
+                }
+
+                // === PORT HANDLING ===
+                if let Some(port_array) = nic_value.get("port").and_then(|v| v.as_array()) {
+                    for port_value in port_array {
+                        let mut port: Port = serde_json::from_value(port_value.clone()).map_err(|e| {
+                            println!("Failed to parse port: {e}");
+                            Error::RollbackTransaction
+                        })?;
+                        port.nic_uuid = nic_uuid.clone();
+                        let port_uuid = port.uuid.clone();
+
+                        let existing_port = port::table
+                            .filter(port::uuid.eq(&port_uuid))
+                            .first::<Port>(conn)
+                            .optional()
+                            .map_err(|e| {
+                                println!("Failed to query port: {e}");
+                                Error::RollbackTransaction
+                            })?;
+
+                        if existing_port.is_none() {
+                            diesel::insert_into(port::table)
+                                .values(&port)
+                                .execute(conn)
+                                .map_err(|e| {
+                                    println!("Failed to insert port: {e}");
+                                    Error::RollbackTransaction
+                                })?;
+                            println!("Inserted port: {}", port_uuid);
+                        } else {
+                            println!("Port {} exists, skipping insert.", port_uuid);
+                        }
+
+                        // === IP HANDLING ===
+                        if let Some(ip_array) = port_value.get("ip").and_then(|v| v.as_array()) {
+                            for ip_value in ip_array {
+                                let mut ip: Ip = serde_json::from_value(ip_value.clone()).map_err(|e| {
+                                    println!("Failed to parse IP: {e}");
+                                    Error::RollbackTransaction
+                                })?;
+                                ip.port_uuid = port_uuid.clone();
+
+                                diesel::insert_into(ip_address::table)
+                                    .values(&ip)
+                                    .execute(conn)
+                                    .map_err(|e| {
+                                        println!("Failed to insert IP: {e}");
+                                        Error::RollbackTransaction
+                                    })?;
+                                println!("Inserted IP.");
+                            }
+                        }
+                    }
+                }
+            }
         }
-        None => {
-            println!("No matching storage_uuid found, skipping partition insertion.");
-            Ok(())
+
+        Ok(())
+    })
+}
+
+
+pub fn delete_action(conn: &mut SqliteConnection, json_data: &Value) -> Result<(), Error> {
+
+    conn.transaction::<_, Error, _>(|conn| {
+        println!("Deleting data from the database...");
+        println!("JSON data: {:?}", json_data.to_string());
+
+        let table_name = json_data
+            .get("deleted")
+            .and_then(|v| v.as_str())
+            .ok_or_else(|| diesel::result::Error::NotFound)?;
+
+        let uuid_array = json_data
+            .get("uuid")
+            .and_then(|v| v.as_array())
+            .ok_or_else(|| diesel::result::Error::NotFound)?;
+
+        let uuid_list: Vec<String> = uuid_array
+            .iter()
+            .filter_map(|v| v.as_str().map(|s| s.to_string()))
+            .collect();
+
+        match table_name {
+            "partition" => {
+                diesel::delete(partition.filter(uuid.eq_any(&uuid_list)))
+                    .execute(conn)?;
+            }
+            "storage" => {
+                diesel::delete(storage.filter(uuid.eq_any(&uuid_list)))
+                    .execute(conn)?;
+            }
+            "nic" => {
+                diesel::delete(nic.filter(uuid.eq_any(&uuid_list)))
+                    .execute(conn)?;
+            }
+            _ => {
+                println!("Unsupported table name: {}", table_name);
+                return Err(diesel::result::Error::NotFound);
+            }
         }
-    }
+
+        Ok(())
+        
+    })
 }

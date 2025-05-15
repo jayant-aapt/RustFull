@@ -1,10 +1,10 @@
-use tracing::{info}; // Removed `error` as it is unused
+use tracing::{info}; 
 use tokio::signal;
 use serde::Serialize;
-use tokio::io::AsyncBufReadExt; // Import the required trait for read_line
-use futures::StreamExt; // Import StreamExt to use the `next` method
+use tokio::io::AsyncBufReadExt; 
+use futures::StreamExt; 
 use base64::{engine::general_purpose, Engine as _};
-use agent_lib; // Your custom library for agent data
+use agent_lib; 
 
 use shared_config::CONFIG;
 
@@ -17,10 +17,14 @@ use models_database::db::{
     establish_connection, get_agent_details
 };
 use async_nats::Client;
+use hostname;
+use sys_info;
 
-#[derive(Serialize, Debug)]
+#[derive(Serialize,Debug)]
 struct MasterKeyPayload {
     master_key: String,
+    hostname: String,
+    os: String,
 }
 
 async fn setup_nats_client(master_key: Vec<u8>) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
@@ -53,6 +57,8 @@ async fn setup_nats_client(master_key: Vec<u8>) -> Result<(), Box<dyn std::error
     // Publish master_key to "master_key"
     let payload = MasterKeyPayload {
         master_key: general_purpose::STANDARD.encode(&master_key),
+        hostname : hostname::get()?.to_string_lossy().to_string(),
+        os : format!("{} {}", sys_info::os_type()?, sys_info::os_release()?),
     };
     publisher.publish("master.key", &payload).await?;
     info!("Master key published to NATs........... ");
@@ -138,20 +144,20 @@ tokio::spawn(async move {
             if let Some(action) = json.get("action").and_then(|v| v.as_str()) {
                 let uuid_value = json.get("uuid").and_then(|v| v.as_str()).unwrap_or("");
                 match action {
-                    "Partition" => {
-                        info!("Scanning partition..............................");
-                        match agent_lib::scan_partition() {
-                            Ok(partition) => send_scan_response(&publisher, action, uuid_value, partition).await,
-                            Err(e) => eprintln!("Failed to scan partition: {e}"),
-                        }
-                    },
-                    "Disk" => {
+                    "disk" | "partition" => {
                         info!("Scanning disk............................................");
-                        match agent_lib::scan_disk() {
+                        match agent_lib::scan_disk(action) {
                             Ok(disk) => send_scan_response(&publisher, action, uuid_value, disk).await,
                             Err(e) => eprintln!("Failed to scan disk: {e}"),
                         }
                     },
+                    "nic" => {
+                        info!("Scanning nic details............................................");
+                        match agent_lib::scan_nic(action) {
+                            Ok(nic_data) => send_scan_response(&publisher, action, uuid_value, nic_data).await,
+                            Err(e) => eprintln!("Failed to scan disk: {e}"),
+                        }
+                    }
                     _ => {
                         eprintln!("Unknown action received: {}", action);
                     }
