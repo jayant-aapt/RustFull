@@ -323,29 +323,25 @@ async fn handle_monitor_data_operations(subscriber: Arc<Mutex<NatsSubscriber>>,p
         match process_monitor_data(&http_client, &payload).await {
             Ok(response_data) => {
                 info!("Received monitor server response: {}", response_data);
-                if let Ok(json_value) = serde_json::from_str::<serde_json::Value>(&response_data) {
+                  if let Ok(json_value) = serde_json::from_str::<serde_json::Value>(&response_data) {
 
-                   if let Some(deleted) = json_value.get("deleted") {
-                        if deleted.as_bool().unwrap_or(false) {
-                            info!("Deleting initial data from the database");
+                    if let Some(action) = json_value.get("action").and_then(|v| v.as_str()) {
+                        if action.contains("deleted") {
+                            info!("Action contains 'deleted', calling delete_action");
                             let mut conn = establish_connection(&CONFIG.db_path);
                             if let Err(e) = delete_initial_data(&mut conn,&json_value) {
                                 error!("Failed to delete initial data: {}", e);
                             }
                         }
-                    } else {
-                        info!("No deletion flag found in the response");
-                        
-                    }
-
-                    if let Some(action) = json_value.get("action").and_then(|v| v.as_str()) {
+                
+                         else{
                             if let Err(e) = publisher.publish(&format!("scan.{}", action), &json_value).await {
                                 error!("Bridge: Failed to publish response: {:?}", e);
                             } else {
                                 info!("Scan response sent successfully to the collector");
                             }
-                    }
-
+                         }
+                    }          
                 }
 
                 

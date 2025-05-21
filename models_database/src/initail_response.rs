@@ -251,7 +251,14 @@ pub fn insert_or_update(conn: &mut SqliteConnection, device_values: &[Value]) ->
                                 })?;
                             println!("Inserted partition: {}", partition_uuid);
                         } else {
-                            println!("Partition {} already exists, skipping.", partition_uuid);
+                            diesel::update(partition::table.filter(partition::uuid.eq(&partition_uuid)))
+                            .set(&partition)
+                            .execute(conn)
+                            .map_err(|e| {
+                                println!("Failed to update storage: {e}");
+                                Error::RollbackTransaction
+                            })?;
+                        println!("Updated storage: {}", storage_uuid);
                         }
                     }
                 }
@@ -326,7 +333,14 @@ pub fn insert_or_update(conn: &mut SqliteConnection, device_values: &[Value]) ->
                                 })?;
                             println!("Inserted port: {}", port_uuid);
                         } else {
-                            println!("Port {} exists, skipping insert.", port_uuid);
+                           diesel::update(port::table.filter(port::uuid.eq(&port_uuid)))
+                            .set(&port)
+                            .execute(conn)
+                            .map_err(|e| {
+                                println!("Failed to update storage: {e}");
+                                Error::RollbackTransaction
+                            })?;
+                            println!("Updated port: {}", port_uuid);
                         }
 
                         // === IP HANDLING ===
@@ -359,15 +373,16 @@ pub fn insert_or_update(conn: &mut SqliteConnection, device_values: &[Value]) ->
 
 
 pub fn delete_action(conn: &mut SqliteConnection, json_data: &Value) -> Result<(), Error> {
-
     conn.transaction::<_, Error, _>(|conn| {
         println!("Deleting data from the database...");
         println!("JSON data: {:?}", json_data.to_string());
 
-        let table_name = json_data
-            .get("deleted")
-            .and_then(|v| v.as_str())
-            .ok_or_else(|| diesel::result::Error::NotFound)?;
+        // Extract action string
+        let action = json_data.get("action").and_then(|v| v.as_str())
+            .ok_or_else(|| {
+                println!("Missing 'action' key");
+                diesel::result::Error::NotFound
+            })?;
 
         let uuid_array = json_data
             .get("uuid")
@@ -390,12 +405,39 @@ pub fn delete_action(conn: &mut SqliteConnection, json_data: &Value) -> Result<(
                 diesel::delete(nic::table.filter(nic::uuid.eq_any(&uuid_list))).execute(conn)?;
             }
             _ => {
-                println!("Unsupported table name: {}", table_name);
+                println!("Missing or invalid 'uuid' key");
                 return Err(diesel::result::Error::NotFound);
             }
-        }
+        };
+        // Call perform_delete with extracted table_name and UUIDs
+        perform_delete(conn, table_name, &uuid_list)?;
 
         Ok(())
-        
     })
+}
+
+fn perform_delete(conn: &mut SqliteConnection, table_name: &str, uuid_list: &[String]) -> Result<(), Error> {
+    use crate::schema::{nic, partition, port, storage}; 
+    use diesel::prelude::*;
+
+    match table_name {
+        "partition" => {
+            diesel::delete(partition::table.filter(partition::uuid.eq_any(uuid_list))).execute(conn)?;
+        }
+        "storage" => {
+            diesel::delete(storage::table.filter(storage::uuid.eq_any(uuid_list))).execute(conn)?;
+        }
+        "nic" | "nics" => {
+            diesel::delete(nic::table.filter(nic::uuid.eq_any(uuid_list))).execute(conn)?;
+        }
+        "port" | "ports" => {
+            diesel::delete(port::table.filter(port::uuid.eq_any(uuid_list))).execute(conn)?;
+        }
+        _ => {
+            println!("Unsupported table: {}", table_name);
+            return Err(diesel::result::Error::NotFound);
+        }
+    }
+
+    Ok(())
 }

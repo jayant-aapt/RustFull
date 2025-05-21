@@ -37,7 +37,7 @@ class Monitoring:
 
     def __init__(self):
         self._init_wmi()
-        db_path = os.path.abspath(r"C:\Users\ADMIN\Desktop\ModifiedRust\RustFull\models_database\models_database.sqlite")
+        db_path = os.path.abspath(r"C:\Users\Administrator\Desktop\Rust_project\RustFull\models_database\models_database.sqlite")
         self.engine = create_engine(f"sqlite:///{db_path}")
         Session = sessionmaker(bind=self.engine)
         self.session = Session()
@@ -228,6 +228,7 @@ class Monitoring:
             io_counters = psutil.disk_io_counters(perdisk=True)
 
             for disk_name, io in io_counters.items():
+               
 
                 uuid = self.get_uuid_by_name("disk_monitoring", "serial_number", disk_name.upper())
 

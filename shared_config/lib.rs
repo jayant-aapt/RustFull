@@ -21,7 +21,7 @@ pub struct Config {
 
 impl Config {
     pub fn new() -> Self {
-        let app_dir = env::var("APP_DIR").unwrap_or_else(|_| "C:/Users/ADMIN/Desktop/ModifiedRust/RustFull".to_string());
+        let app_dir = env::var("APP_DIR").unwrap_or_else(|_| "C:/Users/Administrator/Desktop/Rust_project/RustFull".to_string());
         let config = Self {
             //bridge paths:
             b_jwt_path: env::var("JWT_PATH").unwrap_or_else(|_| format!("{}/nats/nsc_creds/BridgeUser.jwt", app_dir)),
@@ -45,8 +45,8 @@ impl Config {
             db_path: env::var("DB_PATH").unwrap_or_else(|_| format!("{}/models_database/models_database.sqlite", app_dir)),
             
 
-            central_server_url :env::var("CENTRAL_SERVER_URL").unwrap_or_else(|_| "https://192.168.100.12".to_string()),
-            web_socket_url:env::var("WEB_SOCKET_URL").unwrap_or_else(|_| "wss://192.168.100.12".to_string()),
+            central_server_url :env::var("CENTRAL_SERVER_URL").unwrap_or_else(|_| "https://192.168.100.13".to_string()),
+            web_socket_url:env::var("WEB_SOCKET_URL").unwrap_or_else(|_| "wss://192.168.100.13".to_string()),
 
             app_dir,
         };

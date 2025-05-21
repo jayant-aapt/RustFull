@@ -32,7 +32,7 @@ CREATE TABLE cpu (
     l_cores INTEGER NOT NULL,
     speed TEXT NOT NULL,
     os_uuid TEXT,
-    FOREIGN KEY (device_uuid) REFERENCES device(uuid)
+    FOREIGN KEY (device_uuid) REFERENCES device(uuid)ON DELETE CASCADE
 );
 
 CREATE TABLE memory (
@@ -44,7 +44,7 @@ CREATE TABLE memory (
     size TEXT NOT NULL,
     serial_number TEXT NOT NULL,
     os_uuid TEXT,
-    FOREIGN KEY (device_uuid) REFERENCES device(uuid)
+    FOREIGN KEY (device_uuid) REFERENCES device(uuid)ON DELETE CASCADE
 );
 
 CREATE TABLE storage (
@@ -53,26 +53,26 @@ CREATE TABLE storage (
     hw_disk_type TEXT NOT NULL,
     make TEXT NOT NULL,
     model TEXT NOT NULL,
-    serial_number TEXT NOT NULL,
+    serial_number TEXT NOT NULL UNIQUE,
     base_fs_type TEXT NOT NULL,
     free_space TEXT NOT NULL,
     total_disk_usage TEXT NOT NULL,
     total_disk_size TEXT NOT NULL,
     os_uuid TEXT,
-    FOREIGN KEY (device_uuid) REFERENCES device(uuid)
+    FOREIGN KEY (device_uuid) REFERENCES device(uuid)ON DELETE CASCADE
 );
 
 CREATE TABLE partition (
     uuid TEXT PRIMARY KEY  NOT NULL,
     storage_uuid TEXT NOT NULL,
     name TEXT NOT NULL,
-    serial_number TEXT NOT NULL,
+    serial_number TEXT NOT NULL UNIQUE,
     fs_type TEXT NOT NULL,
     free_space TEXT NOT NULL,
     used_space TEXT NOT NULL,
     total_size TEXT NOT NULL,
     os_uuid TEXT,
-    FOREIGN KEY (storage_uuid) REFERENCES storage(uuid)
+    FOREIGN KEY (storage_uuid) REFERENCES storage(uuid)ON DELETE CASCADE
 );
 
 CREATE TABLE nic (
@@ -86,7 +86,7 @@ CREATE TABLE nic (
     serial_number TEXT NOT NULL,
     mac_address TEXT NOT NULL,
     os_uuid TEXT,
-    FOREIGN KEY (device_uuid) REFERENCES device(uuid)
+    FOREIGN KEY (device_uuid) REFERENCES device(uuid)ON DELETE CASCADE
 );
 
 CREATE TABLE port (
@@ -97,7 +97,7 @@ CREATE TABLE port (
     is_physical_logical TEXT NOT NULL,
     logical_type TEXT NOT NULL,
     os_uuid TEXT,
-    FOREIGN KEY (nic_uuid) REFERENCES nic(uuid)
+    FOREIGN KEY (nic_uuid)  REFERENCES nic(uuid)ON DELETE CASCADE
 );
 
 CREATE TABLE ip_address (
@@ -108,7 +108,7 @@ CREATE TABLE ip_address (
     subnet_mask TEXT NOT NULL,
     dns TEXT NOT NULL,
     os_uuid TEXT,
-    FOREIGN KEY (port_uuid) REFERENCES port(uuid)
+    FOREIGN KEY (port_uuid) REFERENCES port(uuid)ON DELETE CASCADE
 );
 
 CREATE TABLE gpu (
@@ -120,14 +120,14 @@ CREATE TABLE gpu (
     size TEXT NOT NULL,
     driver TEXT NOT NULL,
     os_uuid TEXT,
-    FOREIGN KEY (device_uuid) REFERENCES device(uuid)
+    FOREIGN KEY (device_uuid) REFERENCES device(uuid)ON DELETE CASCADE
 );
 
 CREATE TABLE tokens (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    token TEXT NOT NULL UNIQUE,
+    token TEXT NOT NULL ,
     expiration TEXT NOT NULL,
-    token_type TEXT NOT NULL 
+    token_type TEXT NOT NULL UNIQUE
 );
 
--- Your SQL goes here
+-- Your SQL goes 
