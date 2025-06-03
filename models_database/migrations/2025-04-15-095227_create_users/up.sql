@@ -12,7 +12,8 @@ CREATE TABLE agent_credential (
 CREATE TABLE agent (
     uuid TEXT PRIMARY KEY,
     os TEXT NOT NULL,
-    hostname TEXT NOT NULL
+    hostname TEXT NOT NULL,
+    os_version TEXT NOT NULL
 );
 
 CREATE TABLE device (

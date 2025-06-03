@@ -1,5 +1,9 @@
 use diesel::prelude::*;
+use diesel::associations::HasTable;
 use serde::{Deserialize, Serialize};
+use crate::schema::agent::dsl::agent;
+use crate::schema::cpu::dsl::cpu;
+use crate::schema::memory::dsl::memory;
 
 
 
@@ -14,15 +18,21 @@ pub struct AgentCredential {
 }
 
 
-#[derive(Debug, Insertable, Deserialize)]
+#[derive(Debug, Queryable, Insertable, Deserialize)]
 #[diesel(table_name = crate::schema::agent)]
 pub struct Agent {
-    pub uuid: String,
+    pub uuid: Option<String>,
     pub os: String,
     pub hostname: String,
+    pub os_version: String,
+}
+impl Agent {
+    pub fn first(conn: &mut SqliteConnection) -> QueryResult<Self> {
+        agent.first(conn)
+    }
 }
 
-#[derive(Debug, Insertable, Deserialize)]
+#[derive(Debug, Queryable, Insertable, Deserialize)]
 #[diesel(table_name = crate::schema::device)]
 pub struct Device {
     pub uuid: String,
@@ -32,7 +42,7 @@ pub struct Device {
     pub dev_phy_vm: String,
 }
 
-#[derive(Debug, Insertable, Deserialize)]
+#[derive(Debug, Queryable, Insertable, Deserialize)]
 #[diesel(table_name = crate::schema::cpu)]
 pub struct Cpu {
     pub uuid: String,
@@ -46,7 +56,13 @@ pub struct Cpu {
     pub os_uuid: Option<String>,
 }
 
-#[derive(Debug, Insertable, Deserialize)]
+impl Cpu {
+    pub fn first(conn: &mut SqliteConnection) -> QueryResult<Self> {
+        cpu::table().first(conn)
+    }
+}
+
+#[derive(Debug, Queryable, Insertable, Deserialize)]
 #[diesel(table_name = crate::schema::memory)]
 pub struct Memory {
     pub uuid: String,
@@ -58,6 +74,11 @@ pub struct Memory {
     pub size: String,
     pub serial_number: String,
     pub os_uuid: Option<String>,
+}
+impl Memory {
+    pub fn first(conn: &mut SqliteConnection) -> QueryResult<Self> {
+        memory::table().first(conn)
+    }
 }
 
 #[derive(Debug, Insertable, AsChangeset, Deserialize,Queryable)]
@@ -133,8 +154,14 @@ pub struct Ip {
     pub dns: String,
     pub os_uuid: Option<String>,
 }
+impl Ip {
+    pub fn first(conn: &mut SqliteConnection) -> QueryResult<Self> {
+        crate::schema::ip_address::table.first(conn)
+    }
+}
 
-#[derive(Debug, Insertable, Deserialize)]
+
+#[derive(Debug, Queryable, Insertable, Deserialize)]
 #[diesel(table_name = crate::schema::gpu)]
 pub struct Gpu {
     pub uuid: String,

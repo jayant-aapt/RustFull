@@ -1,0 +1,1262 @@
+[2m2025-05-29T07:47:46.754945Z[0m [32m INFO[0m [2mrust_collector[0m[2m:[0m Loading master key...
+[2m2025-05-29T07:47:46.780938Z[0m [32m INFO[0m [2mrust_collector[0m[2m:[0m Master key loaded successfully
+[2m2025-05-29T07:47:46.820562Z[0m [32m INFO[0m [2masync_nats::options[0m[2m:[0m event: connected
+[2m2025-05-29T07:47:46.859409Z[0m [32m INFO[0m [2masync_nats::options[0m[2m:[0m event: connected
+[2m2025-05-29T07:47:46.861954Z[0m [32m INFO[0m [2mrust_collector[0m[2m:[0m Master key published to NATs........... 
+[2m2025-05-29T07:47:46.864650Z[0m [32m INFO[0m [1mServer::run[0m[1m{[0m[3maddr[0m[2m=[0m127.0.0.1:3034[1m}[0m[2m:[0m [2mwarp::server[0m[2m:[0m listening on http://127.0.0.1:3034
+[2m2025-05-29T07:47:46.878472Z[0m [32m INFO[0m [2mrust_collector[0m[2m:[0m Skipping the collecting agent data 
+[2m2025-05-29T09:05:25.567647Z[0m [32m INFO[0m [2mrust_collector[0m[2m:[0m Loading master key...
+[2m2025-05-29T09:05:25.593228Z[0m [32m INFO[0m [2mrust_collector[0m[2m:[0m Master key loaded successfully
+[2m2025-05-29T09:05:25.621856Z[0m [32m INFO[0m [2masync_nats::options[0m[2m:[0m event: connected
+[2m2025-05-29T09:05:25.643995Z[0m [32m INFO[0m [2masync_nats::options[0m[2m:[0m event: connected
+[2m2025-05-29T09:05:25.649175Z[0m [32m INFO[0m [2mrust_collector[0m[2m:[0m Master key published to NATs........... 
+[2m2025-05-29T09:05:25.654369Z[0m [32m INFO[0m [1mServer::run[0m[1m{[0m[3maddr[0m[2m=[0m127.0.0.1:3034[1m}[0m[2m:[0m [2mwarp::server[0m[2m:[0m listening on http://127.0.0.1:3034
+[2m2025-05-29T09:05:26.989044Z[0m [32m INFO[0m [2mrust_collector[0m[2m:[0m Device details not found in database. Collecting the agent data...................
+[2m2025-05-29T09:05:26.989763Z[0m [32m INFO[0m [2mrust_collector[0m[2m:[0m Collecting the agent data...................
+[2m2025-05-29T10:05:40.296807Z[0m [32m INFO[0m [2mrust_collector[0m[2m:[0m Loading master key...
+[2m2025-05-29T10:05:40.315007Z[0m [32m INFO[0m [2mrust_collector[0m[2m:[0m Master key loaded successfully
+[2m2025-05-29T10:05:40.345388Z[0m [32m INFO[0m [2masync_nats::options[0m[2m:[0m event: connected
+[2m2025-05-29T10:05:40.374185Z[0m [32m INFO[0m [2masync_nats::options[0m[2m:[0m event: connected
+[2m2025-05-29T10:05:40.375671Z[0m [32m INFO[0m [2mrust_collector[0m[2m:[0m Master key published to NATs........... 
+[2m2025-05-29T10:05:40.378632Z[0m [32m INFO[0m [1mServer::run[0m[1m{[0m[3maddr[0m[2m=[0m127.0.0.1:3034[1m}[0m[2m:[0m [2mwarp::server[0m[2m:[0m listening on http://127.0.0.1:3034
+[2m2025-05-29T10:05:40.654006Z[0m [32m INFO[0m [2mrust_collector[0m[2m:[0m Skipping the collecting agent data 
+2025-05-29T10:08:08.670224Z  INFO rust_collector: Loading master key...
+2025-05-29T10:08:08.677808Z  INFO rust_collector: Master key loaded successfully
+2025-05-29T10:08:08.701066Z  INFO async_nats::options: event: connected
+2025-05-29T10:08:08.721995Z  INFO async_nats::options: event: connected
+2025-05-29T10:08:08.722917Z  INFO rust_collector: Master key published to NATs........... 
+2025-05-29T10:08:08.725688Z  INFO Server::run: warp::server: listening on http://127.0.0.1:3034 addr=127.0.0.1:3034
+2025-05-29T10:08:08.735994Z  INFO rust_collector: Skipping the collecting agent data 
+[2m2025-05-29T10:13:12.840839Z[0m [32m INFO[0m [2mrust_collector[0m[2m:[0m Loading master key...
+[2m2025-05-29T10:13:12.849498Z[0m [32m INFO[0m [2mrust_collector[0m[2m:[0m Master key loaded successfully
+[2m2025-05-29T10:13:12.892684Z[0m [32m INFO[0m [2masync_nats::options[0m[2m:[0m event: connected
+[2m2025-05-29T10:13:12.920268Z[0m [32m INFO[0m [2masync_nats::options[0m[2m:[0m event: connected
+[2m2025-05-29T10:13:12.921151Z[0m [32m INFO[0m [2mrust_collector[0m[2m:[0m Master key published to NATs........... 
+[2m2025-05-29T10:13:12.923979Z[0m [32m INFO[0m [1mServer::run[0m: [2mwarp::server[0m[2m:[0m listening on http://127.0.0.1:3034 [2m[3maddr[0m[2m=[0m127.0.0.1:3034[0m
+[2m2025-05-29T10:13:12.931436Z[0m [32m INFO[0m [2mrust_collector[0m[2m:[0m Skipping the collecting agent data 
+[2m2025-05-29T10:14:04.523386Z[0m [32m INFO[0m [2mrust_collector[0m[2m:[0m Collector shutting down gracefully...
+2025-05-29T10:14:23.775371Z  INFO rust_collector: Loading master key...
+2025-05-29T10:14:23.786804Z  INFO rust_collector: Master key loaded successfully
+2025-05-29T10:14:23.832567Z  INFO async_nats::options: event: connected
+2025-05-29T10:14:23.852558Z  INFO async_nats::options: event: connected
+2025-05-29T10:14:23.853514Z  INFO rust_collector: Master key published to NATs........... 
+2025-05-29T10:14:23.865625Z  INFO Server::run: warp::server: listening on http://127.0.0.1:3034 addr=127.0.0.1:3034
+2025-05-29T10:14:23.870189Z  INFO rust_collector: Skipping the collecting agent data 
+2025-05-29T10:35:55.491558Z  INFO rust_collector: Loading master key...
+2025-05-29T10:35:55.502161Z  INFO rust_collector: Master key loaded successfully
+2025-05-29T10:35:55.538764Z  INFO async_nats::options: event: connected
+2025-05-29T10:35:55.567554Z  INFO async_nats::options: event: connected
+2025-05-29T10:35:55.569191Z  INFO rust_collector: Master key published to NATs........... 
+2025-05-29T10:35:55.571312Z  INFO Server::run: warp::server: listening on http://127.0.0.1:3034 addr=127.0.0.1:3034
+2025-05-29T10:35:55.578032Z  INFO rust_collector: Skipping the collecting agent data 
+2025-05-29T11:04:52.665846Z  INFO async_nats::options: event: disconnected
+2025-05-29T11:04:52.667189Z  INFO async_nats::options: event: disconnected
+2025-05-29T11:04:54.731395Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T11:04:54.856039Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T11:04:56.777856Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T11:04:56.903004Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T11:04:58.809104Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T11:04:58.934001Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T11:05:00.859787Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T11:05:00.970645Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T11:05:02.898542Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T11:05:03.009076Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T11:05:04.931658Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T11:05:05.045076Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T11:05:07.009706Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T11:05:07.134668Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T11:05:08.181029Z  INFO async_nats::options: event: connected
+2025-05-29T11:05:08.181565Z  INFO async_nats::options: event: connected
+2025-05-29T11:05:08.306709Z  INFO async_nats::options: event: connected
+2025-05-29T11:05:08.307186Z  INFO async_nats::options: event: connected
+2025-05-29T12:15:11.840499Z  INFO async_nats::options: event: disconnected
+2025-05-29T12:15:11.840499Z  INFO async_nats::options: event: disconnected
+2025-05-29T12:15:13.886002Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:15:13.885988Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:15:15.938093Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:15:15.938122Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:15:17.986174Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:15:17.987128Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:15:20.017411Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:15:20.017504Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:15:22.064761Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:15:22.064868Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:15:24.132266Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:15:24.132354Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:15:26.215133Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:15:26.216138Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:15:28.372540Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:15:28.372599Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:15:30.673030Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:15:30.673030Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:15:33.213620Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:15:33.213604Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:15:36.274719Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:15:36.275507Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:15:40.326810Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:15:40.342382Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:15:45.913471Z  INFO async_nats::options: event: connected
+2025-05-29T12:15:45.914084Z  INFO async_nats::options: event: connected
+2025-05-29T12:15:45.914444Z  INFO async_nats::options: event: connected
+2025-05-29T12:15:45.914963Z  INFO async_nats::options: event: connected
+2025-05-29T12:52:48.140155Z  INFO async_nats::options: event: disconnected
+2025-05-29T12:52:48.163613Z  INFO async_nats::options: event: disconnected
+2025-05-29T12:52:50.211882Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:52:50.212852Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:52:52.274390Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:52:52.274371Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-29T12:52:53.608733Z  INFO rust_collector: Collector shutting down gracefully...
+2025-05-30T04:56:18.991886Z  INFO rust_collector: Loading master key...
+2025-05-30T04:56:19.027303Z  INFO rust_collector: Master key loaded successfully
+2025-05-30T04:56:19.073141Z  INFO async_nats::options: event: connected
+2025-05-30T04:56:19.107190Z  INFO async_nats::options: event: connected
+2025-05-30T04:56:19.116531Z  INFO rust_collector: Master key published to NATs........... 
+2025-05-30T04:56:19.122840Z  INFO Server::run: warp::server: listening on http://127.0.0.1:3034 addr=127.0.0.1:3034
+2025-05-30T04:56:20.098891Z  INFO rust_collector: Device details not found in database. Collecting the agent data...................
+2025-05-30T04:56:20.099484Z  INFO rust_collector: Collecting the agent data...................
+2025-05-30T05:01:40.944988Z  INFO rust_collector: Loading master key...
+2025-05-30T05:01:40.955235Z  INFO rust_collector: Master key loaded successfully
+2025-05-30T05:01:41.011393Z  INFO async_nats::options: event: connected
+2025-05-30T05:01:41.035898Z  INFO async_nats::options: event: connected
+2025-05-30T05:01:41.037526Z  INFO rust_collector: Master key published to NATs........... 
+2025-05-30T05:01:41.038893Z  INFO Server::run: warp::server: listening on http://127.0.0.1:3034 addr=127.0.0.1:3034
+2025-05-30T05:01:41.049261Z  INFO rust_collector: Skipping the collecting agent data 
+2025-05-30T05:18:42.338323Z  INFO rust_collector: Loading master key...
+2025-05-30T05:18:42.395225Z  INFO rust_collector: Master key loaded successfully
+2025-05-30T05:18:42.450653Z  INFO async_nats::options: event: connected
+2025-05-30T05:18:42.478157Z  INFO async_nats::options: event: connected
+2025-05-30T05:18:42.488270Z  INFO rust_collector: Master key published to NATs........... 
+2025-05-30T05:18:42.509056Z  INFO Server::run: warp::server: listening on http://127.0.0.1:3034 addr=127.0.0.1:3034
+2025-05-30T05:18:42.524782Z  INFO rust_collector: Skipping the collecting agent data 
+2025-05-30T05:27:45.430207Z  INFO rust_collector: Loading master key...
+2025-05-30T05:27:45.442566Z  INFO rust_collector: Master key loaded successfully
+2025-05-30T05:27:45.472383Z  INFO async_nats::options: event: connected
+2025-05-30T05:27:45.497713Z  INFO async_nats::options: event: connected
+2025-05-30T05:27:45.498387Z  INFO rust_collector: Master key published to NATs........... 
+2025-05-30T05:27:45.500437Z  INFO Server::run: warp::server: listening on http://127.0.0.1:3034 addr=127.0.0.1:3034
+2025-05-30T05:27:45.508549Z  INFO rust_collector: Skipping the collecting agent data 
+2025-05-30T05:27:45.509019Z  INFO rust_collector: [DEBUG] set_monitoring_running(true) called at start of monitoring
+2025-05-30T05:46:00.977680Z  INFO rust_collector: Loading master key...
+2025-05-30T05:46:01.054372Z  INFO rust_collector: Master key loaded successfully
+2025-05-30T05:46:01.089324Z  INFO async_nats::options: event: connected
+2025-05-30T05:46:01.117072Z  INFO async_nats::options: event: connected
+2025-05-30T05:46:01.117639Z  INFO rust_collector: Master key published to NATs........... 
+2025-05-30T05:46:01.119559Z  INFO Server::run: warp::server: listening on http://127.0.0.1:3034 addr=127.0.0.1:3034
+2025-05-30T05:46:03.146642Z  INFO rust_collector: Device details not found in database. Collecting the agent data...................
+2025-05-30T05:46:03.147393Z  INFO rust_collector: Collecting the agent data...................
+2025-05-30T05:46:32.509404Z  INFO rust_collector: [DEBUG] set_monitoring_running(true) called at start of monitoring
+2025-05-30T06:16:15.916543Z  INFO rust_collector: Loading master key...
+2025-05-30T06:16:15.923962Z  INFO rust_collector: Master key loaded successfully
+2025-05-30T06:16:15.950600Z  INFO async_nats::options: event: connected
+2025-05-30T06:16:15.964953Z  INFO async_nats::options: event: connected
+2025-05-30T06:16:15.965483Z  INFO rust_collector: Master key published to NATs........... 
+2025-05-30T06:16:15.967389Z  INFO Server::run: warp::server: listening on http://127.0.0.1:3034 addr=127.0.0.1:3034
+2025-05-30T06:16:17.176230Z  INFO rust_collector: Device details not found in database. Collecting the agent data...................
+2025-05-30T06:16:17.177307Z  INFO rust_collector: Collecting the agent data...................
+2025-05-30T06:16:38.733748Z  INFO rust_collector: [NATS] Published monitoring.status: running
+2025-05-30T06:26:30.171031Z  INFO rust_collector: Loading master key...
+2025-05-30T06:26:30.179727Z  INFO rust_collector: Master key loaded successfully
+2025-05-30T06:26:30.224103Z  INFO async_nats::options: event: connected
+2025-05-30T06:26:30.247461Z  INFO async_nats::options: event: connected
+2025-05-30T06:26:30.250213Z  INFO rust_collector: Master key published to NATs........... 
+2025-05-30T06:26:30.253248Z  INFO Server::run: warp::server: listening on http://127.0.0.1:3034 addr=127.0.0.1:3034
+2025-05-30T06:26:30.266282Z  INFO rust_collector: Skipping the collecting agent data 
+2025-05-30T06:26:30.266846Z  INFO rust_collector: [NATS] Published monitoring.status: running
+2025-05-30T06:32:26.769891Z  INFO rust_collector: Loading master key...
+2025-05-30T06:32:26.787275Z  INFO rust_collector: Master key loaded successfully
+2025-05-30T06:32:26.817063Z  INFO async_nats::options: event: connected
+2025-05-30T06:32:26.839921Z  INFO async_nats::options: event: connected
+2025-05-30T06:32:26.840708Z  INFO rust_collector: Master key published to NATs........... 
+2025-05-30T06:32:26.859612Z  INFO Server::run: warp::server: listening on http://127.0.0.1:3034 addr=127.0.0.1:3034
+2025-05-30T06:32:26.871452Z  INFO rust_collector: Skipping the collecting agent data 
+2025-05-30T06:32:26.871900Z  INFO rust_collector: [NATS] Published monitoring.status: running
+2025-05-30T06:38:18.472163Z  INFO rust_collector: Loading master key...
+2025-05-30T06:38:18.535977Z  INFO rust_collector: Master key loaded successfully
+2025-05-30T06:38:18.780278Z  INFO async_nats::options: event: connected
+2025-05-30T06:38:18.810627Z  INFO async_nats::options: event: connected
+2025-05-30T06:38:18.813363Z  INFO rust_collector: Master key published to NATs........... 
+2025-05-30T06:38:18.822086Z  INFO Server::run: warp::server: listening on http://127.0.0.1:3034 addr=127.0.0.1:3034
+2025-05-30T06:38:18.897678Z  INFO rust_collector: Skipping the collecting agent data 
+2025-05-30T06:38:18.898223Z  INFO rust_collector: [NATS] Published monitoring.status: running
+2025-05-30T06:48:34.952740Z  INFO rust_collector: Loading master key...
+2025-05-30T06:48:34.961477Z  INFO rust_collector: Master key loaded successfully
+2025-05-30T06:48:34.990573Z  INFO async_nats::options: event: connected
+2025-05-30T06:48:35.018473Z  INFO async_nats::options: event: connected
+2025-05-30T06:48:35.020072Z  INFO rust_collector: Master key published to NATs........... 
+2025-05-30T06:48:35.021791Z  INFO Server::run: warp::server: listening on http://127.0.0.1:3034 addr=127.0.0.1:3034
+2025-05-30T06:48:36.160634Z  INFO rust_collector: Device details not found in database. Collecting the agent data...................
+2025-05-30T06:48:36.161469Z  INFO rust_collector: Collecting the agent data...................
+2025-05-30T06:48:52.311082Z  INFO rust_collector: [NATS] Published monitoring.status: running
+2025-05-30T07:02:35.966754Z  INFO rust_collector: Loading master key...
+2025-05-30T07:02:35.982868Z  INFO rust_collector: Master key loaded successfully
+2025-05-30T07:02:36.013210Z  INFO async_nats::options: event: connected
+2025-05-30T07:02:36.039549Z  INFO async_nats::options: event: connected
+2025-05-30T07:02:36.040338Z  INFO rust_collector: Master key published to NATs........... 
+2025-05-30T07:02:36.043172Z  INFO Server::run: warp::server: listening on http://127.0.0.1:3034 addr=127.0.0.1:3034
+2025-05-30T07:02:37.640990Z  INFO rust_collector: Device details not found in database. Collecting the agent data...................
+2025-05-30T07:02:37.644174Z  INFO rust_collector: Collecting the agent data...................
+2025-05-30T07:02:56.325797Z  INFO rust_collector: [NATS] Published monitoring.status: running
+2025-05-30T07:02:56.327577Z  INFO rust_collector: [NATS] Published monitoring.status: stopped (scan not entered)
+2025-05-30T07:04:05.915599Z  INFO rust_collector: Loading master key...
+2025-05-30T07:04:05.923602Z  INFO rust_collector: Master key loaded successfully
+2025-05-30T07:04:05.979931Z  INFO async_nats::options: event: connected
+2025-05-30T07:04:06.005228Z  INFO async_nats::options: event: connected
+2025-05-30T07:04:06.006103Z  INFO rust_collector: Master key published to NATs........... 
+2025-05-30T07:04:06.008991Z  INFO Server::run: warp::server: listening on http://127.0.0.1:3034 addr=127.0.0.1:3034
+2025-05-30T07:04:06.016979Z  INFO rust_collector: Skipping the collecting agent data 
+2025-05-30T07:04:06.017390Z  INFO rust_collector: [NATS] Published monitoring.status: running
+2025-05-30T07:48:28.914493Z  INFO rust_collector: Loading master key...
+2025-05-30T07:48:29.648205Z  INFO rust_collector: Master key loaded successfully
+2025-05-30T07:48:31.320909Z  INFO async_nats::options: event: connected
+2025-05-30T07:48:31.333545Z  INFO async_nats::options: event: connected
+2025-05-30T07:48:31.360779Z  INFO rust_collector: Master key published to NATs........... 
+2025-05-30T07:48:31.497118Z  INFO Server::run: warp::server: listening on http://127.0.0.1:3034 addr=127.0.0.1:3034
+2025-05-30T07:48:31.931327Z  INFO rust_collector: Skipping the collecting agent data 
+2025-05-30T07:48:31.932419Z  INFO rust_collector: [NATS] Published monitoring.status: running
+2025-05-30T08:09:48.896041Z  INFO rust_collector: Loading master key...
+2025-05-30T08:09:48.905095Z  INFO rust_collector: Master key loaded successfully
+2025-05-30T08:09:48.948613Z  INFO async_nats::options: event: connected
+2025-05-30T08:09:48.976031Z  INFO async_nats::options: event: connected
+2025-05-30T08:09:48.976598Z  INFO rust_collector: Master key published to NATs........... 
+2025-05-30T08:09:48.979654Z  INFO Server::run: warp::server: listening on http://127.0.0.1:3034 addr=127.0.0.1:3034
+2025-05-30T08:09:50.652996Z  INFO rust_collector: Device details not found in database. Collecting the agent data...................
+2025-05-30T08:09:50.658188Z  INFO rust_collector: Collecting the agent data...................
+2025-05-30T08:10:08.227425Z  INFO rust_collector: [NATS] Published monitoring.status: running
+2025-05-30T08:10:08.228705Z  INFO rust_collector: [NATS] Published monitoring.status: stopped (scan not entered)
+2025-05-30T08:10:40.912677Z  INFO rust_collector: Loading master key...
+2025-05-30T08:10:40.919385Z  INFO rust_collector: Master key loaded successfully
+2025-05-30T08:10:40.945252Z  INFO async_nats::options: event: connected
+2025-05-30T08:10:40.974403Z  INFO async_nats::options: event: connected
+2025-05-30T08:10:40.974938Z  INFO rust_collector: Master key published to NATs........... 
+2025-05-30T08:10:40.976738Z  INFO Server::run: warp::server: listening on http://127.0.0.1:3034 addr=127.0.0.1:3034
+2025-05-30T08:10:40.985244Z  INFO rust_collector: Skipping the collecting agent data 
+2025-05-30T08:10:40.985604Z  INFO rust_collector: [NATS] Published monitoring.status: running
+2025-05-30T10:28:42.445939Z  INFO rust_collector: Loading master key...
+2025-05-30T10:28:42.462396Z  INFO rust_collector: Master key loaded successfully
+2025-05-30T10:28:42.488731Z  INFO async_nats::options: event: connected
+2025-05-30T10:28:42.492587Z  INFO async_nats::options: event: connected
+2025-05-30T10:28:42.518919Z  INFO async_nats::options: event: connected
+2025-05-30T10:28:42.519592Z  INFO rust_collector: Master key published to NATs........... 
+2025-05-30T10:28:42.522604Z  INFO Server::run: warp::server: listening on http://127.0.0.1:3034 addr=127.0.0.1:3034
+2025-05-30T10:28:43.851534Z  INFO rust_collector: Device details not found in database. Collecting the agent data...................
+2025-05-30T10:28:43.852436Z  INFO rust_collector: Collecting the agent data...................
+2025-05-30T10:29:05.145472Z  INFO async_nats::options: event: connected
+2025-05-30T10:29:05.248857Z  INFO rust_collector: [NATS] Published monitoring.status: running
+2025-05-30T10:29:10.178863Z  INFO async_nats::options: event: connected
+2025-05-30T10:29:15.213857Z  INFO async_nats::options: event: connected
+2025-05-30T10:29:20.233986Z  INFO async_nats::options: event: connected
+2025-05-30T10:29:25.256369Z  INFO async_nats::options: event: connected
+2025-05-30T10:29:30.297257Z  INFO async_nats::options: event: connected
+2025-05-30T10:29:35.333984Z  INFO rust_collector: NATS healthy, resuming collector operations
+2025-05-30T10:29:35.334199Z  INFO async_nats::options: event: connected
+2025-05-30T10:29:40.353565Z  INFO rust_collector: NATS healthy, resuming collector operations
+2025-05-30T10:29:40.353604Z  INFO async_nats::options: event: connected
+2025-05-30T10:29:45.387177Z  INFO async_nats::options: event: connected
+2025-05-30T10:29:50.432004Z  INFO async_nats::options: event: connected
+2025-05-30T10:29:55.469884Z  INFO async_nats::options: event: connected
+2025-05-30T10:29:58.773866Z  INFO async_nats::options: event: disconnected
+2025-05-30T10:29:58.798390Z  INFO async_nats::options: event: disconnected
+2025-05-30T10:30:00.845995Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:30:00.846906Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:30:02.521715Z  INFO rust_collector: NATS unhealthy, pausing collector operations
+2025-05-30T10:30:02.881032Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:30:02.881468Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:30:04.896995Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:30:04.897033Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:30:06.937376Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:30:06.939334Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:30:08.991491Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:30:08.991563Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:30:11.127749Z  INFO async_nats::options: event: connected
+2025-05-30T10:30:11.134241Z  INFO async_nats::options: event: connected
+2025-05-30T10:30:11.228441Z  INFO async_nats::options: event: connected
+2025-05-30T10:30:11.232267Z  INFO async_nats::options: event: connected
+2025-05-30T10:30:14.604143Z  INFO async_nats::options: event: connected
+2025-05-30T10:30:14.604116Z  INFO rust_collector: NATS healthy, resuming collector operations
+2025-05-30T10:30:19.648730Z  INFO async_nats::options: event: connected
+2025-05-30T10:30:24.677567Z  INFO async_nats::options: event: connected
+2025-05-30T10:30:29.709432Z  INFO async_nats::options: event: connected
+2025-05-30T10:30:34.742851Z  INFO async_nats::options: event: connected
+2025-05-30T10:30:39.773610Z  INFO async_nats::options: event: connected
+2025-05-30T10:30:44.818996Z  INFO async_nats::options: event: connected
+2025-05-30T10:30:49.852658Z  INFO async_nats::options: event: connected
+2025-05-30T10:30:54.888523Z  INFO async_nats::options: event: connected
+2025-05-30T10:30:59.927987Z  INFO async_nats::options: event: connected
+2025-05-30T10:31:04.960615Z  INFO async_nats::options: event: connected
+2025-05-30T10:31:09.990660Z  INFO async_nats::options: event: connected
+2025-05-30T10:31:15.034650Z  INFO async_nats::options: event: connected
+2025-05-30T10:31:20.066080Z  INFO async_nats::options: event: connected
+2025-05-30T10:31:25.102578Z  INFO async_nats::options: event: connected
+2025-05-30T10:31:30.117916Z  INFO async_nats::options: event: connected
+2025-05-30T10:31:35.147790Z  INFO async_nats::options: event: connected
+2025-05-30T10:31:40.180472Z  INFO async_nats::options: event: connected
+2025-05-30T10:31:45.196639Z  INFO async_nats::options: event: connected
+2025-05-30T10:31:50.214044Z  INFO async_nats::options: event: connected
+2025-05-30T10:31:55.231093Z  INFO async_nats::options: event: connected
+2025-05-30T10:32:00.250977Z  INFO async_nats::options: event: connected
+2025-05-30T10:32:05.275511Z  INFO async_nats::options: event: connected
+2025-05-30T10:32:06.906613Z  INFO async_nats::options: event: disconnected
+2025-05-30T10:32:06.906613Z  INFO async_nats::options: event: disconnected
+2025-05-30T10:32:08.935623Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:32:08.936685Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:32:11.013705Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:32:11.014586Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:32:12.358193Z  INFO rust_collector: NATS unhealthy, pausing collector operations
+2025-05-30T10:32:13.057711Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:32:13.058640Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:32:15.117922Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:32:15.117973Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:32:17.180473Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:32:17.180588Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:32:19.289749Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:32:19.289768Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:32:21.414886Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:32:21.415564Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:32:23.570980Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:32:23.570980Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:32:25.867833Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:32:25.867833Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:32:28.430504Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T10:32:28.430504Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:19:39.014440Z  INFO rust_collector: Loading master key...
+2025-05-30T11:19:39.063701Z  INFO rust_collector: Master key loaded successfully
+2025-05-30T11:19:39.109185Z  INFO async_nats::options: event: connected
+2025-05-30T11:19:39.119851Z  INFO async_nats::options: event: connected
+2025-05-30T11:19:39.155262Z  INFO async_nats::options: event: connected
+2025-05-30T11:19:39.156758Z  INFO rust_collector: Master key published to NATs........... 
+2025-05-30T11:19:39.159090Z  INFO Server::run: warp::server: listening on http://127.0.0.1:3034 addr=127.0.0.1:3034
+2025-05-30T11:19:40.677013Z  INFO rust_collector: Device details not found in database. Collecting the agent data...................
+2025-05-30T11:19:40.678004Z  INFO rust_collector: Collecting the agent data...................
+2025-05-30T11:20:01.392550Z  INFO async_nats::options: event: connected
+2025-05-30T11:20:01.505285Z  INFO rust_collector: [NATS] Published monitoring.status: running
+2025-05-30T11:20:06.430391Z  INFO async_nats::options: event: connected
+2025-05-30T11:20:11.506845Z  INFO async_nats::options: event: connected
+2025-05-30T11:20:16.539591Z  INFO async_nats::options: event: connected
+2025-05-30T11:20:21.572809Z  INFO async_nats::options: event: connected
+2025-05-30T11:20:26.607916Z  INFO async_nats::options: event: connected
+2025-05-30T11:20:31.649577Z  INFO async_nats::options: event: connected
+2025-05-30T11:20:36.672752Z  INFO async_nats::options: event: connected
+2025-05-30T11:20:41.705717Z  INFO async_nats::options: event: connected
+2025-05-30T11:20:46.745698Z  INFO async_nats::options: event: connected
+2025-05-30T11:20:51.792789Z  INFO async_nats::options: event: connected
+2025-05-30T11:20:56.836910Z  INFO async_nats::options: event: connected
+2025-05-30T11:21:01.876047Z  INFO async_nats::options: event: connected
+2025-05-30T11:21:06.913519Z  INFO async_nats::options: event: connected
+2025-05-30T11:21:11.955438Z  INFO async_nats::options: event: connected
+2025-05-30T11:21:16.975167Z  INFO async_nats::options: event: connected
+2025-05-30T11:21:21.995385Z  INFO async_nats::options: event: connected
+2025-05-30T11:21:27.029478Z  INFO async_nats::options: event: connected
+2025-05-30T11:21:32.060958Z  INFO async_nats::options: event: connected
+2025-05-30T11:21:37.080063Z  INFO async_nats::options: event: connected
+2025-05-30T11:21:42.117253Z  INFO async_nats::options: event: connected
+2025-05-30T11:21:47.144978Z  INFO async_nats::options: event: connected
+2025-05-30T11:21:52.189133Z  INFO async_nats::options: event: connected
+2025-05-30T11:21:57.225893Z  INFO async_nats::options: event: connected
+2025-05-30T11:22:02.258973Z  INFO async_nats::options: event: connected
+2025-05-30T11:22:07.294933Z  INFO async_nats::options: event: connected
+2025-05-30T11:22:12.340112Z  INFO async_nats::options: event: connected
+2025-05-30T11:22:17.403881Z  INFO async_nats::options: event: connected
+2025-05-30T11:22:22.438920Z  INFO async_nats::options: event: connected
+2025-05-30T11:22:27.466118Z  INFO async_nats::options: event: connected
+2025-05-30T11:22:32.511561Z  INFO async_nats::options: event: connected
+2025-05-30T11:22:37.536940Z  INFO async_nats::options: event: connected
+2025-05-30T11:22:42.586435Z  INFO async_nats::options: event: connected
+2025-05-30T11:22:47.624716Z  INFO async_nats::options: event: connected
+2025-05-30T11:22:52.649321Z  INFO async_nats::options: event: connected
+2025-05-30T11:22:57.695182Z  INFO async_nats::options: event: connected
+2025-05-30T11:23:02.719666Z  INFO async_nats::options: event: connected
+2025-05-30T11:23:07.746700Z  INFO async_nats::options: event: connected
+2025-05-30T11:23:12.775169Z  INFO async_nats::options: event: connected
+2025-05-30T11:23:17.821928Z  INFO async_nats::options: event: connected
+2025-05-30T11:23:22.902644Z  INFO async_nats::options: event: connected
+2025-05-30T11:23:27.945313Z  INFO async_nats::options: event: connected
+2025-05-30T11:23:32.976520Z  INFO async_nats::options: event: connected
+2025-05-30T11:23:38.022474Z  INFO async_nats::options: event: connected
+2025-05-30T11:23:43.041734Z  INFO async_nats::options: event: connected
+2025-05-30T11:23:48.085231Z  INFO async_nats::options: event: connected
+2025-05-30T11:23:53.127240Z  INFO async_nats::options: event: connected
+2025-05-30T11:23:58.165954Z  INFO async_nats::options: event: connected
+2025-05-30T11:24:03.200571Z  INFO async_nats::options: event: connected
+2025-05-30T11:24:08.244069Z  INFO async_nats::options: event: connected
+2025-05-30T11:24:13.294521Z  INFO async_nats::options: event: connected
+2025-05-30T11:24:16.525097Z  INFO async_nats::options: event: disconnected
+2025-05-30T11:24:16.526165Z  INFO async_nats::options: event: disconnected
+2025-05-30T11:24:18.648634Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:18.789176Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:20.680779Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:20.805723Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:22.726964Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:22.836321Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:24.789714Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:24.883483Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:26.837055Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:26.946275Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:28.919135Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:29.013073Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:31.008417Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:31.117778Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:33.195839Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:33.320868Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:35.508845Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:35.633801Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:38.025747Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:38.165980Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:41.071572Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:41.227761Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:45.180695Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:45.336911Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:51.242910Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:51.383592Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:57.290492Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:24:57.446779Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:25:03.321919Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:25:03.493767Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:25:09.369739Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:25:09.557215Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:25:15.431416Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:25:15.618852Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:25:21.493492Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:25:21.665246Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:25:27.541180Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:25:27.728419Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:25:33.602873Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-30T11:25:33.758825Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T04:56:21.543473Z  INFO rust_collector: Loading master key...
+2025-05-31T04:56:21.573854Z  INFO rust_collector: Master key loaded successfully
+2025-05-31T04:56:21.618789Z  INFO async_nats::options: event: connected
+2025-05-31T04:56:21.618845Z  INFO async_nats::options: event: connected
+2025-05-31T04:56:21.643788Z  INFO async_nats::options: event: connected
+2025-05-31T04:56:21.644751Z  INFO rust_collector: Master key published to NATs........... 
+2025-05-31T04:56:21.647575Z  INFO Server::run: warp::server: listening on http://127.0.0.1:3034 addr=127.0.0.1:3034
+2025-05-31T04:56:22.767716Z  INFO rust_collector: Device details not found in database. Collecting the agent data...................
+2025-05-31T04:56:22.768162Z  INFO rust_collector: Collecting the agent data...................
+2025-05-31T04:56:43.639599Z  INFO async_nats::options: event: connected
+2025-05-31T04:56:43.748357Z  INFO rust_collector: [NATS] Published monitoring.status: running
+2025-05-31T04:56:43.760381Z  INFO rust_collector: [NATS] Published monitoring.status: stopped (scan not entered)
+2025-05-31T04:56:48.682439Z  INFO async_nats::options: event: connected
+2025-05-31T04:56:53.717738Z  INFO async_nats::options: event: connected
+2025-05-31T04:56:58.751063Z  INFO async_nats::options: event: connected
+2025-05-31T04:57:36.657549Z  INFO rust_collector: Loading master key...
+2025-05-31T04:57:36.663824Z  INFO rust_collector: Master key loaded successfully
+2025-05-31T04:57:36.686640Z  INFO async_nats::options: event: connected
+2025-05-31T04:57:36.701205Z  INFO async_nats::options: event: connected
+2025-05-31T04:57:36.736926Z  INFO async_nats::options: event: connected
+2025-05-31T04:57:36.741336Z  INFO rust_collector: Master key published to NATs........... 
+2025-05-31T04:57:36.746941Z  INFO Server::run: warp::server: listening on http://127.0.0.1:3034 addr=127.0.0.1:3034
+2025-05-31T04:57:36.771568Z  INFO rust_collector: Skipping the collecting agent data 
+2025-05-31T04:57:36.772371Z  INFO rust_collector: [NATS] Published monitoring.status: running
+2025-05-31T04:57:41.720129Z  INFO async_nats::options: event: connected
+2025-05-31T04:57:46.752196Z  INFO async_nats::options: event: connected
+2025-05-31T04:57:51.796680Z  INFO async_nats::options: event: connected
+2025-05-31T04:57:56.832108Z  INFO async_nats::options: event: connected
+2025-05-31T04:58:01.873037Z  INFO async_nats::options: event: connected
+2025-05-31T04:59:00.260293Z  INFO rust_collector: Loading master key...
+2025-05-31T04:59:00.269377Z  INFO rust_collector: Master key loaded successfully
+2025-05-31T04:59:00.293533Z  INFO async_nats::options: event: connected
+2025-05-31T04:59:00.297128Z  INFO async_nats::options: event: connected
+2025-05-31T04:59:00.317602Z  INFO async_nats::options: event: connected
+2025-05-31T04:59:00.318552Z  INFO rust_collector: Master key published to NATs........... 
+2025-05-31T04:59:00.320980Z  INFO Server::run: warp::server: listening on http://127.0.0.1:3034 addr=127.0.0.1:3034
+2025-05-31T04:59:00.332820Z  INFO rust_collector: Skipping the collecting agent data 
+2025-05-31T04:59:00.334017Z  INFO rust_collector: [NATS] Published monitoring.status: running
+2025-05-31T04:59:05.336340Z  INFO async_nats::options: event: connected
+2025-05-31T04:59:10.381754Z  INFO async_nats::options: event: connected
+2025-05-31T04:59:16.943598Z  INFO async_nats::options: event: connected
+2025-05-31T04:59:21.964486Z  INFO async_nats::options: event: connected
+2025-05-31T04:59:27.005111Z  INFO async_nats::options: event: connected
+2025-05-31T04:59:32.041015Z  INFO async_nats::options: event: connected
+2025-05-31T04:59:37.062302Z  INFO async_nats::options: event: connected
+2025-05-31T04:59:42.086027Z  INFO async_nats::options: event: connected
+2025-05-31T04:59:47.136034Z  INFO async_nats::options: event: connected
+2025-05-31T04:59:52.161229Z  INFO async_nats::options: event: connected
+2025-05-31T04:59:57.182962Z  INFO async_nats::options: event: connected
+2025-05-31T05:00:02.212500Z  INFO async_nats::options: event: connected
+2025-05-31T05:00:07.262728Z  INFO async_nats::options: event: connected
+2025-05-31T05:00:12.305300Z  INFO async_nats::options: event: connected
+2025-05-31T05:00:17.361411Z  INFO async_nats::options: event: connected
+2025-05-31T05:00:22.435060Z  INFO async_nats::options: event: connected
+2025-05-31T05:00:27.473676Z  INFO async_nats::options: event: connected
+2025-05-31T05:00:32.500140Z  INFO async_nats::options: event: connected
+2025-05-31T05:00:37.538270Z  INFO async_nats::options: event: connected
+2025-05-31T05:00:42.561800Z  INFO async_nats::options: event: connected
+2025-05-31T05:00:47.605485Z  INFO async_nats::options: event: connected
+2025-05-31T05:00:52.627539Z  INFO async_nats::options: event: connected
+2025-05-31T05:00:57.661398Z  INFO async_nats::options: event: connected
+2025-05-31T05:01:02.683953Z  INFO async_nats::options: event: connected
+2025-05-31T05:01:07.715328Z  INFO async_nats::options: event: connected
+2025-05-31T05:01:12.740465Z  INFO async_nats::options: event: connected
+2025-05-31T05:01:17.761367Z  INFO async_nats::options: event: connected
+2025-05-31T05:01:22.788986Z  INFO async_nats::options: event: connected
+2025-05-31T05:01:27.820052Z  INFO async_nats::options: event: connected
+2025-05-31T05:01:32.859668Z  INFO async_nats::options: event: connected
+2025-05-31T05:01:37.900419Z  INFO async_nats::options: event: connected
+2025-05-31T05:01:39.732714Z  INFO async_nats::options: event: disconnected
+2025-05-31T05:01:39.734563Z  INFO async_nats::options: event: disconnected
+2025-05-31T05:01:41.852194Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:01:41.977055Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:01:43.884213Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:01:44.025399Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:01:45.902250Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:01:46.057677Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:01:47.945966Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:01:48.086241Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:01:50.024526Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:01:50.134061Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:01:52.101621Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:01:52.242251Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:01:54.212005Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:01:54.337205Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:01:56.369159Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:01:56.493981Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:01:58.657094Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:01:58.766509Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:02:01.186711Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:02:01.297514Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:02:04.228176Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:02:04.338451Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:02:08.294198Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:02:08.389138Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:02:14.328310Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:02:14.407555Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:02:20.367491Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:02:20.445576Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:02:26.392915Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:02:26.461426Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:02:32.432022Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:02:32.511053Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:02:38.477041Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:02:38.539372Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:02:44.523789Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:02:44.586404Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:02:50.586416Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:02:50.633132Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:02:56.649066Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:02:56.664274Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:03:02.695812Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:03:02.726882Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:03:08.742810Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:03:08.758293Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:03:14.789577Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:03:14.789663Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:03:20.836503Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:03:20.837299Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:03:26.899039Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:03:26.899802Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:03:32.961567Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:03:32.962848Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:03:39.008534Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:03:39.009382Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:03:45.039737Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:03:45.040331Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:03:51.086762Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:03:51.087280Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:03:57.133625Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:03:57.133669Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:04:03.164953Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:04:03.211576Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:04:09.211777Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:04:09.289720Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:04:15.274304Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:04:15.336745Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:04:21.336825Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:04:21.383696Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:04:27.399299Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:04:27.446256Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:04:33.446322Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:04:33.508791Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:04:39.524431Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:04:39.555642Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:04:45.571424Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:04:45.586806Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:04:51.649474Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:04:51.650267Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:04:57.727790Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:04:57.727854Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:05:03.790358Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:05:03.790358Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:05:09.837134Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:05:09.837195Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:05:15.899844Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:05:15.900718Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:05:21.931025Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:05:21.931025Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:05:28.009072Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:05:28.009837Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:05:34.040299Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:05:34.041013Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:05:40.087453Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:05:40.088263Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:05:46.118499Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:05:46.149843Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:05:52.165361Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:05:52.212195Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:05:58.196736Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:05:58.274851Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:06:04.274956Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:06:04.337456Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:06:10.337436Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:06:10.415504Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:06:16.384347Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:06:16.462595Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:06:22.462519Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:06:22.524987Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:06:28.525375Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:06:28.587611Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:06:34.587603Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:06:34.634367Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:06:40.634521Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:06:40.697042Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:06:46.665739Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:06:46.759599Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:06:52.728298Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:06:52.837693Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:06:58.775330Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:06:58.884642Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:07:04.822117Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:07:04.947200Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:07:10.884657Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:07:11.009863Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:07:16.963083Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:07:17.072159Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:07:23.009795Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:07:23.134712Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:07:29.072235Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:07:29.166101Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:07:35.134767Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:07:35.212970Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:07:41.213008Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:07:41.259963Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:07:47.259906Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:07:47.306968Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:07:53.338144Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:07:53.338937Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:07:59.385217Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:07:59.385362Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:08:05.447496Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:08:05.448144Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:08:11.510207Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:08:11.510949Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:08:17.557045Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:08:17.588218Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:08:23.635305Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:08:23.650571Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:08:29.697663Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:08:29.698269Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:08:35.760242Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:08:35.775732Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:08:41.822801Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:08:41.823063Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:08:47.885273Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:08:47.886096Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:08:53.947879Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:08:53.948774Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:09:00.010313Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:09:00.013410Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:09:06.072829Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:09:06.088350Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:09:12.119726Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:09:12.120394Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:09:18.197901Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:09:18.198599Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:09:24.229213Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:09:24.260426Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:09:30.307406Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:09:30.338771Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:09:36.385669Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:09:36.385899Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:09:42.448198Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:09:42.448952Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:09:48.510600Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:09:48.511310Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:09:54.557462Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:09:54.558545Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:10:00.604504Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:10:00.604588Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:10:06.666929Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:10:06.682583Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:10:12.729545Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:10:12.730267Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:10:18.807641Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:10:18.808384Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:10:24.885806Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:10:24.886728Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:10:30.917033Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:10:30.917694Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:10:36.964412Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:10:36.964701Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:10:43.010861Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:10:43.026550Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:10:49.073379Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:10:49.089154Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:10:55.151522Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:10:55.152472Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:11:01.198500Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:11:01.198500Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:11:07.261112Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:11:07.261764Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:11:13.307977Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:11:13.323497Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:11:19.339220Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:11:19.354785Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:11:25.386262Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:11:25.386977Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:11:31.433193Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:11:31.433316Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:11:37.511252Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:11:37.511841Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:11:43.558289Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:11:43.559365Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:11:49.589466Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:11:49.620611Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:11:55.636349Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:11:55.636946Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:12:01.683228Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:12:01.683930Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:12:07.714547Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:12:07.714560Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:12:13.792710Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:12:13.793377Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:12:19.839831Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:12:19.840512Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:12:25.886611Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:12:25.887295Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:12:31.949077Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:12:31.949124Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:12:38.011539Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:12:38.012166Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:12:44.058522Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:12:44.058522Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:12:50.089742Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:12:50.090759Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:12:56.136862Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:12:56.137609Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:13:02.183664Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:13:02.183664Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:13:08.246179Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:13:08.246320Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:13:14.308758Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:13:14.309370Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:13:20.340089Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:13:20.340862Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:13:26.402538Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:13:26.403297Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:13:32.465136Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:13:32.465936Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:13:38.527659Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:13:38.528625Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:13:44.590220Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:13:44.590968Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:13:50.637135Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:13:50.637851Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:13:56.715330Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:13:56.715330Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:14:02.762222Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:14:02.762954Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:14:08.809063Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:14:08.809858Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:14:14.855897Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:14:14.856603Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:14:20.861391Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:14:20.861589Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:14:26.863626Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:14:26.864273Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:14:32.867058Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:14:32.867050Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:14:38.870154Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:14:38.870751Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:14:44.874666Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:14:44.875416Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:14:50.897987Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:14:50.898014Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:14:56.918034Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:14:56.918614Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:15:02.956083Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:15:02.956095Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:15:08.959211Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:15:08.959249Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:15:14.963047Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:15:14.963093Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:15:20.973580Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:15:20.973580Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:15:26.988488Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:15:26.989273Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:15:32.997384Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:15:32.997384Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:15:39.012675Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:15:39.013497Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:15:45.036286Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:15:45.036910Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:15:51.054031Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:15:51.054629Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:15:57.081359Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:15:57.081401Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:16:03.090948Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:16:03.091660Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:16:09.115611Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:16:09.116567Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:16:15.129169Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:16:15.129887Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:16:21.169195Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:16:21.169195Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:16:27.195238Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:16:27.195985Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:16:33.201730Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:16:33.202526Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:16:39.222760Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:16:39.223434Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:16:45.238534Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:16:45.239205Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:16:51.266762Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:16:51.267469Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:16:57.278688Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:16:57.282214Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:17:03.310049Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:17:03.310049Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:17:09.333196Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:17:09.336800Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:17:15.345733Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:17:15.346501Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:17:21.378744Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:17:21.379523Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:17:27.397747Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:17:27.398004Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:17:33.420343Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:17:33.421124Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:17:39.441549Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:17:39.443119Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:17:45.452074Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:17:45.452761Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:17:51.481938Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:17:51.482880Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:17:57.500660Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:17:57.500660Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:18:03.544741Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:18:03.545550Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:18:09.548501Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:18:09.550367Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:18:15.576074Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:18:15.576609Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:18:21.578998Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:18:21.580713Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:18:27.624115Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:18:27.624112Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:18:33.649716Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:18:33.650578Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:18:39.702167Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:18:39.702167Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:18:45.764566Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:18:45.764566Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:18:51.826995Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:18:51.827713Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:18:57.889433Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:18:57.889483Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:19:03.912053Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:19:03.912056Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:19:09.990125Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:19:09.990833Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:19:16.036939Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:19:16.037584Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:19:22.099545Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:19:22.100287Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:19:28.162189Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:19:28.162188Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:19:34.209152Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:19:34.210165Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:19:40.255951Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:19:40.256016Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:19:46.287361Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:19:46.287351Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:19:52.334312Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:19:52.334328Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:19:58.381223Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:19:58.382150Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:20:04.419342Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:20:04.434953Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:20:10.466167Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:20:10.466961Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:20:16.497441Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:20:16.544226Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:20:22.529771Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:20:22.592136Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:20:28.593417Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:20:28.624481Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:20:34.624608Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:20:34.702610Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:20:40.671505Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:20:40.733997Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:20:46.702860Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:20:46.796513Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:20:52.765324Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:20:52.843415Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:20:58.796518Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:20:58.906084Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:21:04.827041Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:21:04.936220Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:21:10.889648Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:21:10.967579Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:21:16.920741Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:21:17.030256Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:21:22.967685Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:21:23.108185Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:21:29.046001Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:21:29.186448Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:21:35.092745Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:21:35.217822Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:21:41.139735Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:21:41.280213Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:21:47.202407Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:21:47.311622Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:21:53.249258Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:21:53.342992Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:21:59.296127Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:21:59.405585Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:22:05.343088Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:22:05.436656Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:22:11.374360Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:22:11.468081Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:22:17.436906Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:22:17.514945Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:22:23.468485Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:22:23.546438Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:22:29.515226Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:22:29.577698Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:22:35.562096Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:22:35.640115Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:22:41.608994Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:22:41.687134Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:22:47.640424Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:22:47.765239Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:22:53.687254Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:22:53.827917Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:22:59.734339Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:22:59.859150Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:23:05.765228Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:23:05.890201Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:23:11.827833Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:23:11.968439Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:23:17.890301Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:23:18.015240Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:23:23.937375Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:23:24.062337Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:23:30.015424Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:23:30.093396Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:23:36.046602Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:23:36.109118Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:23:42.093525Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:23:42.156066Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:23:48.156113Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:23:48.218630Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:23:54.187386Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:23:54.265454Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:24:00.218716Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:24:00.328047Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:24:06.281248Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:24:06.390495Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:24:12.359362Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:24:12.437514Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:24:18.390572Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:24:18.468857Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:24:24.456181Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:24:24.519625Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:24:30.506825Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:24:30.553593Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:24:36.584925Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:24:36.584925Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:24:42.592004Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:24:42.607395Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:24:48.640848Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:24:48.640848Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:24:54.719009Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:24:54.719683Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:25:00.765872Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:25:00.765872Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:25:06.812772Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:25:06.813442Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:25:12.859660Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:25:12.859660Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:25:18.922189Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:25:18.937750Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:25:24.969142Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:25:24.969175Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:25:31.031585Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:25:31.032266Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:25:37.094190Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:25:37.094190Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:25:43.141114Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:25:43.141766Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:25:49.203615Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:25:49.203615Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:25:55.266226Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:25:55.266275Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:26:01.297454Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:26:01.297454Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:26:07.375605Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:26:07.376355Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:26:13.422495Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:26:13.423165Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:26:19.469465Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:26:19.470124Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:26:25.531898Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:26:25.531898Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:26:31.578872Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:26:31.578872Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:26:37.641445Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:26:37.642169Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:26:43.704121Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:26:43.704801Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:26:49.766462Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:26:49.767131Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:26:55.829168Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:26:55.829168Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:27:01.891692Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:27:01.892370Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:27:07.954126Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:27:07.954126Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:27:14.016634Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:27:14.017398Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:27:20.063631Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:27:20.079035Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:27:26.142514Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:27:26.143185Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:27:32.173618Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:27:32.174316Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:27:38.205042Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:27:38.205719Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:27:44.283083Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:27:44.283733Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:27:50.298788Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:27:50.298788Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:27:56.330044Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:27:56.330739Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:28:02.368101Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:28:02.368102Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:28:08.415072Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:28:08.415072Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:28:14.493226Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:28:14.493226Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:28:20.531108Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:28:20.531796Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:28:26.578083Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:28:26.578797Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:28:32.624827Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:28:32.655952Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:28:38.671683Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:28:38.702805Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:28:44.718692Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:28:44.749929Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:28:50.781299Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:28:50.796650Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:28:56.828086Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:28:56.828773Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:29:02.845246Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:29:02.907655Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:29:08.892254Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:29:08.970123Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:29:14.954622Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:29:15.017142Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:29:21.017293Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:29:21.079611Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:29:27.095294Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:29:27.157924Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:29:33.142211Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:29:33.220303Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:29:39.204891Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:29:39.267224Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:29:45.283143Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:29:45.314186Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:29:51.314212Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:29:51.345526Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:29:57.361204Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:29:57.423461Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:30:03.407990Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:30:03.470472Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:30:09.470515Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:30:09.517297Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:30:15.533112Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:30:15.564159Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:30:21.595621Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:30:21.595693Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:30:27.674641Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:30:27.675307Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:30:33.752959Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:30:33.753607Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:30:39.784224Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:30:39.799751Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:30:45.846853Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:30:45.846853Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:30:51.893535Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:30:51.894196Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:30:57.940561Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:30:57.940561Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:31:03.994197Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:31:03.994197Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:31:10.056749Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:31:10.056741Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:31:16.119209Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:31:16.119910Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:31:22.181826Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:31:22.182483Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:31:28.259927Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:31:28.260624Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:31:34.322426Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:31:34.323115Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:31:40.385009Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:31:40.385723Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:31:46.431880Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:31:46.431880Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:31:52.510187Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:31:52.510187Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:31:58.557110Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:31:58.557093Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:32:04.610962Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:32:04.611640Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:32:10.658082Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:32:10.658083Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:32:16.689415Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:32:16.689415Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:32:22.751751Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:32:22.752474Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:32:28.798796Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:32:28.814226Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:32:34.861172Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:32:34.861172Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:32:40.923954Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:32:40.923949Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:32:46.986311Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:32:46.986311Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:32:53.048906Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:32:53.049582Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:32:59.080130Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:32:59.080793Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:33:05.143394Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:33:05.159119Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:33:11.221561Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:33:11.222360Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:33:17.268368Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:33:17.268956Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:33:23.346736Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:33:23.347396Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:33:29.393570Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:33:29.393570Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:33:35.456051Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:33:35.456037Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:33:41.503430Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:33:41.503431Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:33:47.550104Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:33:47.551061Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:33:53.597045Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:33:53.597809Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:33:59.651530Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:33:59.651537Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:34:05.682947Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:34:05.714045Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:34:11.745373Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:34:11.776396Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:34:17.808126Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:34:17.809396Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:34:23.854841Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:34:23.854841Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:34:29.901742Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:34:29.932767Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:34:35.979776Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:34:35.979956Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:34:42.026690Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:34:42.027433Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:34:48.058074Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:34:48.058962Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:34:54.105013Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:34:54.105613Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:35:00.167446Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:35:00.168393Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:35:06.245601Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:35:06.246363Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:35:12.323739Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:35:12.324388Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:35:18.370865Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:35:18.372044Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:35:24.433205Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:35:24.434010Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:35:30.480163Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:35:30.480163Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:35:36.527177Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:35:36.527177Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:35:42.550402Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:35:42.550492Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:35:48.598761Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:35:48.599507Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:35:54.646289Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:35:54.646289Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:36:00.664354Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:36:00.664354Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:36:06.666768Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:36:06.667387Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:36:12.669651Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:36:12.669698Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:36:18.707358Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:36:18.707387Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:36:24.785630Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:36:24.785729Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:36:30.788060Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:36:30.788060Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:36:36.803037Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:36:36.804059Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:36:42.840518Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:36:42.840507Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:36:48.898964Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:36:48.899080Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:36:54.941602Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:36:54.957048Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:37:00.955227Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:37:00.986248Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:37:07.020094Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:37:07.035331Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:37:13.066628Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:37:13.097912Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:37:19.097966Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:37:19.160335Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:37:25.144739Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:37:25.222970Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:37:31.207251Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:37:31.269761Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:37:37.269792Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:37:37.300933Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:37:43.347996Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:37:43.348180Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:37:49.410695Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:37:49.411541Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:37:55.489247Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:37:55.489995Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:38:01.519910Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:38:01.520610Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:38:07.582557Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:38:07.583219Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:38:13.660632Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:38:13.660752Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:38:19.723257Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:38:19.723906Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:38:25.770198Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:38:25.770883Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:38:31.817043Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:38:31.817744Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:38:37.864299Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:38:37.865083Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:38:43.926885Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:38:43.927647Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:38:49.958086Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:38:49.959211Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:38:56.020733Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:38:56.021390Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:39:02.082805Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:39:02.098293Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:39:08.145322Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:39:08.145907Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:39:14.207888Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:39:14.208632Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:39:20.270406Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:39:20.271400Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:39:26.317325Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:39:26.318346Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:39:32.348799Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:39:32.379716Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:39:38.426828Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)
+2025-05-31T05:39:38.427506Z  INFO async_nats::options: event: client error: nats: IO error: No connection could be made because the target machine actively refused it. (os error 10061)

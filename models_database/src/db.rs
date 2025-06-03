@@ -102,7 +102,7 @@ pub fn save_token(conn: &mut SqliteConnection, token_str: &str, expiration_str: 
             expiration.eq(expiration_str),
             token_type.eq(token_type_str),
         ))
-        .on_conflict(token_typa)
+        .on_conflict(token_type)
         .do_update()
         .set((
             token.eq(token_str),

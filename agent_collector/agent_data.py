@@ -266,7 +266,7 @@ class AgentData:
     def __init__(self):
         pythoncom.CoInitialize()
         self.wmi_obj = wmi.WMI()
-        db_path = os.path.abspath(r"C:\Users\Administrator\Desktop\Rust_project\RustFull\models_database\models_database.sqlite")
+        db_path = os.path.abspath(r"C:\Users\Administrator\Downloads\RustFull\models_database\models_database.sqlite")
         self.engine = create_engine(f"sqlite:///{db_path}")
         Session = sessionmaker(bind=self.engine)
         self.session = Session()

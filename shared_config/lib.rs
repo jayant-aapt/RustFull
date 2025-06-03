@@ -21,7 +21,7 @@ pub struct Config {
 
 impl Config {
     pub fn new() -> Self {
-        let app_dir = env::var("APP_DIR").unwrap_or_else(|_| "C:/Users/Administrator/Desktop/Rust_project/RustFull".to_string());
+        let app_dir = env::var("APP_DIR").unwrap_or_else(|_| "C:/Users/Administrator/Downloads/RustFull".to_string());
         let config = Self {
             //bridge paths:
             b_jwt_path: env::var("JWT_PATH").unwrap_or_else(|_| format!("{}/nats/nsc_creds/BridgeUser.jwt", app_dir)),

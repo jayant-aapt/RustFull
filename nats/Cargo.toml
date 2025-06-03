@@ -19,3 +19,5 @@ tracing = "0.1"
 shared_config = { path = "../shared_config" }
 
 bytes = "1.0"
+warp = "0.3"
+log = "0.4"

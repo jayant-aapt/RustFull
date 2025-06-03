@@ -5,6 +5,7 @@ diesel::table! {
         uuid -> Nullable<Text>,
         os -> Text,
         hostname -> Text,
+        os_version -> Text,
     }
 }
 

@@ -9,7 +9,7 @@ use base64::Engine;
 use shared_config::CONFIG;
 
 use models_database::db::{
-    establish_connection, get_agent_credential, initial_data_save, is_agent_onboarded, save_agent ,update_initial_data
+    establish_connection, get_agent_credential, initial_data_save, is_agent_onboarded, save_agent ,update_initial_data, get_token
 };
 use tokio_tungstenite::{connect_async_tls_with_config, Connector, WebSocketStream};
 use tokio_tungstenite::tungstenite::protocol::Message;
@@ -27,6 +27,15 @@ use native_tls::TlsConnector as NativeTlsConnector;
 use tungstenite::client::IntoClientRequest;
 use tokio_tungstenite::MaybeTlsStream;
 use futures_util::StreamExt;
+use warp::ws::Message as WarpMessage;
+use tokio::time::{self, Duration, timeout};
+use serde_json::json;
+use std::time::{SystemTime, UNIX_EPOCH};
+use std::fs;
+use std::path::Path;
+use crate::create_publisher;
+use std::sync::atomic::{AtomicBool, Ordering};
+use once_cell::sync::Lazy;
 
 fn base_url() -> &'static str {
     CONFIG.central_server_url.as_str()
@@ -42,6 +51,7 @@ struct MasterKeyPayload {
     master_key: String,
     hostname: String,
     os: String,
+    os_version: String,
 }
 
 /// Submits the master key to the server for onboarding
@@ -344,3 +354,76 @@ pub async fn scan_data_to_server(data: &Value, uuid: &str,action :&str) -> Resul
     
 
 }
+
+/// Function to check and send WSS connection status to frontend
+pub async fn send_wss_status(mut socket: warp::ws::WebSocket) {
+    use serde_json::json;
+    use tokio::time::{self, Duration};
+    use warp::ws::Message as WarpMessage;
+
+    // Send initial waiting status
+    let initial_status = json!({ "wss": "Waiting" });
+    if socket.send(WarpMessage::text(initial_status.to_string())).await.is_err() {
+        return;
+    }
+
+    // Wait for token to be available
+    while !is_token_available() {
+        tokio::time::sleep(Duration::from_secs(1)).await;
+        // Send waiting status periodically
+        let waiting_status = json!({ "wss": "Waiting" });
+        if socket.send(WarpMessage::text(waiting_status.to_string())).await.is_err() {
+            return;
+        }
+    }
+
+    let mut interval = time::interval(Duration::from_secs(5)); // Check every 5 seconds
+
+    loop {
+        interval.tick().await;
+
+        // Get agent credentials and token for WSS connection test
+        let mut conn = establish_connection(&CONFIG.db_path);
+        let (agent_uuid, access_token) = match (
+            get_agent_credential(&mut conn),
+            get_token(&mut conn, "access_token")
+        ) {
+            (Some(cred), Some(token)) => (cred.uuid, token.token),
+            _ => {
+                // If we can't get credentials, send waiting status
+                let status = json!({ "wss": "Waiting" });
+                if socket.send(WarpMessage::text(status.to_string())).await.is_err() {
+                    return;
+                }
+                continue;
+            }
+        };
+
+        // Use the monitoring status (replace with NATS-based check if available)
+        let wss_status = if MONITORING_RUNNING.load(Ordering::SeqCst) {
+            "Connected"
+        } else {
+            "Waiting"
+        };
+        let status = json!({ "wss": wss_status });
+        if socket.send(WarpMessage::text(status.to_string())).await.is_err() {
+            return;
+        }
+    }
+}
+
+// Add static TOKEN_AVAILABLE for token status
+static TOKEN_AVAILABLE: std::sync::atomic::AtomicBool = std::sync::atomic::AtomicBool::new(false);
+
+// Add public function to set token availability
+pub fn set_token_available(available: bool) {
+    TOKEN_AVAILABLE.store(available, Ordering::SeqCst);
+}
+
+// Add public function to check token availability
+pub fn is_token_available() -> bool {
+    TOKEN_AVAILABLE.load(Ordering::SeqCst)
+}
+
+// Add a static for monitoring status
+pub static MONITORING_RUNNING: Lazy<AtomicBool> = Lazy::new(|| AtomicBool::new(false));

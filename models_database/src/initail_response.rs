@@ -384,25 +384,26 @@ pub fn delete_action(conn: &mut SqliteConnection, json_data: &Value) -> Result<(
                 diesel::result::Error::NotFound
             })?;
 
-        let uuid_array = json_data
-            .get("uuid")
-            .and_then(|v| v.as_array())
-            .ok_or_else(|| diesel::result::Error::NotFound)?;
+        // Check action prefix, e.g., "deleted_partition"
+        if !action.starts_with("deleted_") {
+            println!("Action '{}' is not a delete action", action);
+            return Err(diesel::result::Error::NotFound);
+        }
 
-        let uuid_list: Vec<String> = uuid_array
+        // Extract table name after "deleted_"
+        let table_name = &action["deleted_".len()..]; // slice after "deleted_"
+
+        // Get UUID array from "uuid" key
+        let uuid_list: Vec<String> = match json_data.get("uuid") {
+            Some(v) if v.is_array() => {
+                v.as_array()
+                    .unwrap()
             .iter()
-            .filter_map(|v| v.as_str().map(|s| s.to_string()))
-            .collect();
-
-        match table_name {
-            "partition" => {
-                diesel::delete(partition::table.filter(partition::uuid.eq_any(&uuid_list))).execute(conn)?;
+                    .filter_map(|val| val.as_str().map(|s| s.to_string()))
+                    .collect()
             }
-            "storage" => {
-                diesel::delete(storage::table.filter(storage::uuid.eq_any(&uuid_list))).execute(conn)?;
-            }
-            "nic" => {
-                diesel::delete(nic::table.filter(nic::uuid.eq_any(&uuid_list))).execute(conn)?;
+            Some(v) if v.is_string() => {
+                vec![v.as_str().unwrap().to_string()]
             }
             _ => {
                 println!("Missing or invalid 'uuid' key");
@@ -417,7 +418,7 @@ pub fn delete_action(conn: &mut SqliteConnection, json_data: &Value) -> Result<(
 }
 
 fn perform_delete(conn: &mut SqliteConnection, table_name: &str, uuid_list: &[String]) -> Result<(), Error> {
-    use crate::schema::{nic, partition, port, storage}; 
+    use crate::schema::{nic, partition, port, storage}; // Adjust this as per your schema modules
     use diesel::prelude::*;
 
     match table_name {
